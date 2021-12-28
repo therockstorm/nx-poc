@@ -2,6 +2,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "projectType": "app",
   "nx": {
     "tags": [
       "scope:client"
@@ -20,6 +21,7 @@
   "scripts": {
     "build": "tsc --build",
     "clean": "rm -rf coverage/ dist/",
+    "lint": "eslint **/*.ts --fix",
     "start": "ts-node ./src/index.ts"
   }
 }

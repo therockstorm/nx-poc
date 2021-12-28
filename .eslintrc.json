@@ -1,35 +1,51 @@
 {
   "root": true,
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "simple-import-sort"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "files": ["*.ts", "*.tsx"],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
-            "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "scope:api",
+                "bannedExternalImports": ["*svelte*"],
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:domain"]
+              },
+              {
+                "sourceTag": "scope:client",
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:domain"]
+              },
+              {
+                "sourceTag": "scope:domain",
+                "bannedExternalImports": ["*svelte*"],
+                "onlyDependOnLibsWithTags": ["scope:domain"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "bannedExternalImports": ["*svelte*"],
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               }
-            ]
+            ],
+            "enforceBuildableLibDependency": true
           }
-        ]
+        ],
+        "no-await-in-loop": "warn",
+        "no-return-await": "warn",
+        "require-await": "warn",
+        "simple-import-sort/imports": "warn"
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
+      "files": ["*.yaml", "*.yml"],
+      "plugins": ["yaml"],
+      "extends": ["plugin:yaml/recommended"]
     }
   ]
 }

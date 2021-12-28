@@ -1,6 +1,7 @@
 {
   "name": "api",
   "version": "0.1.0",
+  "projectType": "app",
   "private": true,
   "nx": {
     "tags": [
@@ -21,6 +22,7 @@
   "scripts": {
     "build": "tsc --build",
     "clean": "rm -rf coverage/ dist/",
+    "lint": "eslint **/*.ts --fix",
     "start": "ts-node ./src/index.ts"
   }
 }

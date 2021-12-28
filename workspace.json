@@ -1,12 +1,12 @@
 {
   "version": 2,
   "projects": {
-    "api": "packages/api",
-    "api-spec": "packages/api-spec",
-    "client-node": "packages/client-node",
-    "hello-tsc": "packages/hello-tsc",
-    "lib": "packages/lib",
-    "scripts": "packages/scripts",
-    "web": "packages/web"
+    "api": { "root": "packages/api" },
+    "api-spec": { "root": "packages/api-spec" },
+    "client-node": { "root": "packages/client-node" },
+    "hello-tsc": { "root": "packages/hello-tsc" },
+    "lib": { "root": "packages/lib" },
+    "scripts": { "root": "packages/scripts" },
+    "web": { "root": "packages/web" }
   }
 }

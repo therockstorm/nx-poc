@@ -3,8 +3,8 @@
 !/.vscode/tasks.json
 !/.vscode/launch.json
 !/.vscode/extensions.json
-coverage
-dist
+/coverage
+/dist
 node_modules
 /out-tsc
 /tmp

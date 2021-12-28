@@ -1,6 +1,6 @@
 import produce from "immer";
-import type { DeepReadonly, Opaque } from "ts-essentials";
 import Pino from "pino";
+import type { DeepReadonly, Opaque } from "ts-essentials";
 
 const logger = Pino({
   level:
