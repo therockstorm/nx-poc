@@ -1,4 +1,12 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "api": "packages/api",
+    "api-spec": "packages/api-spec",
+    "client-node": "packages/client-node",
+    "hello-tsc": "packages/hello-tsc",
+    "lib": "packages/lib",
+    "scripts": "packages/scripts",
+    "web": "packages/web"
+  }
 }

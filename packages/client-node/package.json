@@ -1,0 +1,27 @@
+{
+  "name": "@therockstorm/new-new-client",
+  "version": "0.1.0",
+  "description": "OpenAPI client for @therockstorm/new-new-client",
+  "author": "OpenAPI-Generator Contributors",
+  "keywords": [
+    "axios",
+    "typescript",
+    "openapi-client",
+    "openapi-generator",
+    "@therockstorm/new-new-client"
+  ],
+  "license": "Unlicense",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --outDir dist/",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.17",
+    "typescript": "4.5.4"
+  }
+}

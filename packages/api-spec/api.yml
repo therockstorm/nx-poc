@@ -1,0 +1,76 @@
+openapi: 3.0.3
+tags:
+  - name: users
+info:
+  contact:
+    name: Mr. Support
+  description: My test API.
+  title: new-new API
+  version: "1.0"
+servers:
+  - url: http://localhost:3000
+    description: local
+paths:
+  /users/{id}:
+    parameters:
+      - schema:
+          $ref: ./schemas/NanoID.yml
+        name: id
+        in: path
+        required: true
+        description: An existing user's ID.
+    get:
+      description: Get a user by ID.
+      operationId: getUserById
+      responses:
+        "200":
+          description: User found.
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/User.yml
+              examples:
+                Get User Alice Smith:
+                  value:
+                    created: "2020-01-01T12:00:00.000Z"
+                    email: alice.smith@gmail.com
+                    id: KavFhNwo9R7_tVno2vSbt
+                    name: Alice Smith
+        "404":
+          description: User not found.
+      tags: [users]
+  /users:
+    post:
+      description: Create a new user.
+      operationId: createUser
+      responses:
+        "200":
+          description: User created.
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/User.yml
+              examples:
+                New User Alice Smith:
+                  value:
+                    created: "2020-01-01T12:00:00.000Z"
+                    email: alice.smith@gmail.com
+                    id: KavFhNwo9R7_tVno2vSbt
+                    name: Alice Smith
+        "400":
+          description: Bad request.
+        "409":
+          description: Email already taken.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/CreateUser.yml
+            examples:
+              New User Alice Smith:
+                value:
+                  email: alice.smith@gmail.com
+                  name: Alice Smith
+      tags: [users]
+components:
+  securitySchemes: {}

@@ -1,0 +1,10 @@
+{
+  "name": "scripts",
+  "version": "0.1.0",
+  "devDependencies": {
+    "zx": "4.2.0"
+  },
+  "scripts": {
+    "start": "./index.mjs"
+  }
+}

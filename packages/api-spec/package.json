@@ -1,0 +1,17 @@
+{
+  "name": "api-spec",
+  "version": "0.1.0",
+  "private": true,
+  "nx": {
+    "tags": [
+      "scope:domain"
+    ]
+  },
+  "devDependencies": {
+    "@stoplight/spectral": "6.1.0"
+  },
+  "scripts": {
+    "lint": "spectral lint -F hint spec/api.yml",
+    "clean": "rm -rf client-node/"
+  }
+}

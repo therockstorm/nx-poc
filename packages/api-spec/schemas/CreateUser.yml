@@ -1,0 +1,7 @@
+properties:
+  email:
+    $ref: Email.yml
+  name:
+    $ref: NonEmptyString.yml
+required: [email, name]
+type: object

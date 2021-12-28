@@ -1,0 +1,3 @@
+example: KavFhNwo9R7_tVno2vSbt
+pattern: "^[A-Za-z0-9_-]{21}$"
+type: string

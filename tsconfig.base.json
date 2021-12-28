@@ -2,18 +2,20 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": ".",
-    "declaration": false,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "error",
     "importHelpers": true,
-    "incremental": true,
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
@@ -22,7 +24,10 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "ES2020"
+    "target": "ES2020",
+    "paths": {
+      "@nx-poc/hello-tsc": ["packages/hello-tsc/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

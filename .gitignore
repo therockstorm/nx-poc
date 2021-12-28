@@ -3,9 +3,9 @@
 !/.vscode/tasks.json
 !/.vscode/launch.json
 !/.vscode/extensions.json
-/coverage
-/dist
-/node_modules
+coverage
+dist
+node_modules
 /out-tsc
 /tmp
 /typings

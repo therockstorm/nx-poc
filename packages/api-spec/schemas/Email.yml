@@ -1,0 +1,5 @@
+example: email@example.com
+format: email
+maxLength: 1024
+minLength: 5
+type: string

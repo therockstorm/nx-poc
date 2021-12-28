@@ -1,0 +1,17 @@
+examples:
+  - created: "2020-01-01T12:00:00.000Z"
+    email: alice.smith@gmail.com
+    id: KavFhNwo9R7_tVno2vSbt
+    name: Alice Smith
+properties:
+  created:
+    $ref: DateTime.yml
+  email:
+    $ref: Email.yml
+  id:
+    $ref: NanoID.yml
+  name:
+    $ref: NonEmptyString.yml
+required: [created, email, id, name]
+title: User
+type: object
