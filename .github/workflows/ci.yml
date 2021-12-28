@@ -1,0 +1,48 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+
+env: { NX_CLOUD_DISTRIBUTED_EXECUTION: true }
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with: { fetch-depth: 0 }
+      - uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v2
+        with: { node-version: "16" }
+      - run: yarn
+      - run: yarn nx-cloud start-ci-run
+      - run: yarn nx affected --target=build --parallel --max-parallel=3
+      - run: yarn nx affected --target=test --parallel --max-parallel=2
+      - run: yarn nx-cloud stop-all-agents
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v2
+        with: { node-version: "16" }
+      - run: yarn
+      - run: yarn nx-cloud start-ci-run
+      - run: yarn nx affected --target=build --parallel --max-parallel=3
+      - run: yarn nx affected --target=test --parallel --max-parallel=2
+      - run: yarn nx-cloud stop-all-agents
+  agents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy: { matrix: { agent: [1, 2, 3] } }
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with: { node-version: "16" }
+      - run: yarn
+      - run: yarn nx-cloud start-agent

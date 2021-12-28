@@ -1,22 +1,18 @@
 {
   "extends": "@nrwl/workspace/presets/core.json",
-  "npmScope": "dev.rocky",
   "affected": {
     "defaultBase": "main"
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   },
+  "npmScope": "nx-poc",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "ZTYzN2EyOTAtNTFmMS00OGNmLTk1MzctODQyZGVjOGM2NDEyfHJlYWQtd3JpdGU="
       }
     }
   }
