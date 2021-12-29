@@ -1,0 +1,23 @@
+{
+  "root": "packages/scripts",
+  "sourceRoot": "packages/scripts",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/scripts",
+        "main": "packages/scripts/index.mjs",
+        "tsConfig": "packages/scripts/tsconfig.json",
+        "assets": ["packages/scripts/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/scripts/**/*.mjs"]
+      }
+    }
+  },
+  "tags": ["scope:shared"]
+}

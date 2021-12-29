@@ -1,0 +1,23 @@
+{
+  "root": "packages/client-node",
+  "sourceRoot": "packages/client-node",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/client-node",
+        "main": "packages/client-node/src/index.ts",
+        "tsConfig": "packages/client-node/tsconfig.json",
+        "assets": ["packages/client-node/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/client-node/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["scope:shared"]
+}

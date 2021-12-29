@@ -1,0 +1,4 @@
+{
+  "root": "packages/api-spec",
+  "tags": ["scope:domain"]
+}

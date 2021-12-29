@@ -1,0 +1,23 @@
+{
+  "root": "packages/web",
+  "sourceRoot": "packages/web/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/web",
+        "main": "packages/web/src/index.ts",
+        "tsConfig": "packages/web/tsconfig.json",
+        "assets": ["packages/web/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/web/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["scope:client"]
+}
