@@ -4,7 +4,6 @@
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/hello-tsc",
         "main": "packages/hello-tsc/src/index.ts",
@@ -22,8 +21,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "coverage": true,
-        "jestConfig": "packages/hello-tsc/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "packages/hello-tsc/jest.config.js"
       }
     }
   },

@@ -4,12 +4,10 @@
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/api",
         "main": "packages/api/src/index.ts",
-        "tsConfig": "packages/api/tsconfig.json",
-        "assets": ["packages/api/*.md"]
+        "tsConfig": "packages/api/tsconfig.json"
       }
     },
     "lint": {
