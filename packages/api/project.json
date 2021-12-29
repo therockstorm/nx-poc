@@ -1,6 +1,8 @@
 {
+  "projectType": "application",
   "root": "packages/api",
   "sourceRoot": "packages/api/src",
+  "tags": ["scope:api"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -16,6 +18,5 @@
         "lintFilePatterns": ["packages/api/**/*.ts"]
       }
     }
-  },
-  "tags": ["scope:api"]
+  }
 }

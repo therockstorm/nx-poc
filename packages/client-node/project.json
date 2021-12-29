@@ -1,6 +1,8 @@
 {
+  "projectType": "library",
   "root": "packages/client-node",
   "sourceRoot": "packages/client-node",
+  "tags": ["scope:shared"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -16,6 +18,5 @@
         "lintFilePatterns": ["packages/client-node/**/*.ts"]
       }
     }
-  },
-  "tags": ["scope:shared"]
+  }
 }

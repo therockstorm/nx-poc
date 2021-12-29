@@ -1,6 +1,8 @@
 {
+  "projectType": "library",
   "root": "packages/lib",
   "sourceRoot": "packages/lib/src",
+  "tags": ["scope:shared"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -25,6 +27,5 @@
         "jestConfig": "packages/lib/jest.config.js"
       }
     }
-  },
-  "tags": ["scope:shared"]
+  }
 }

@@ -1,7 +1,6 @@
 {
   "name": "scripts",
   "version": "0.1.0",
-  "projectType": "library",
   "private": true,
   "devDependencies": {
     "zx": "4.2.0"

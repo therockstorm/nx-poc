@@ -1,6 +1,8 @@
 {
+  "projectType": "library",
   "root": "packages/scripts",
   "sourceRoot": "packages/scripts",
+  "tags": ["scope:shared"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -16,6 +18,5 @@
         "lintFilePatterns": ["packages/scripts/**/*.mjs"]
       }
     }
-  },
-  "tags": ["scope:shared"]
+  }
 }

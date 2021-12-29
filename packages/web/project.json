@@ -1,6 +1,8 @@
 {
+  "projectType": "application",
   "root": "packages/web",
   "sourceRoot": "packages/web/src",
+  "tags": ["scope:client"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -16,6 +18,5 @@
         "lintFilePatterns": ["packages/web/**/*.ts"]
       }
     }
-  },
-  "tags": ["scope:client"]
+  }
 }

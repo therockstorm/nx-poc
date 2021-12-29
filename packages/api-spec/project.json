@@ -1,4 +1,5 @@
 {
+  "projectType": "library",
   "root": "packages/api-spec",
   "tags": ["scope:domain"]
 }

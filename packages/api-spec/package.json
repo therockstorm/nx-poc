@@ -1,7 +1,6 @@
 {
   "name": "api-spec",
   "version": "0.1.0",
-  "projectType": "library",
   "private": true,
   "devDependencies": {
     "@stoplight/spectral": "6.1.0"

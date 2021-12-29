@@ -1,7 +1,6 @@
 {
   "name": "api",
   "version": "0.1.0",
-  "projectType": "application",
   "private": true,
   "devDependencies": {
     "@types/jest": "27.0.3",

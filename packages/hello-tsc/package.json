@@ -1,8 +1,0 @@
-{
-  "name": "@nx-poc/hello-tsc",
-  "version": "0.0.1",
-  "projectType": "library",
-  "private": true,
-  "type": "commonjs",
-  "scripts": {}
-}
