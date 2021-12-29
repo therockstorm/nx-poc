@@ -5170,10 +5170,10 @@ tree-kill@1.2.2:
   resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-ts-essentials@9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-9.1.0.tgz#0aa567b6b55d3f72afd7a331f3071aa102c58c38"
-  integrity sha512-L0ggCct1zrW4qoVs3+sVZvT3upDdbPGJTsfIau9kiZxlyRFaMWDZxAI/VsM1HX9fCJWgoNoynxYm2GcxwQtDMg==
+ts-essentials@9.1.1:
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-9.1.1.tgz#1ca7cd685e42be34eff73cd4070fc5f750f4047f"
+  integrity sha512-Mc4+ELnK+ltIpZgrWciMGlzWfrD2nDcXnyZWL392abtjdHx1nP6zx1y8woyyn/dfm7yG+3mle6bmNFtjowRKhQ==
 
 ts-jest@27.1.2:
   version "27.1.2"
