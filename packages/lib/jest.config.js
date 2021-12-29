@@ -10,5 +10,5 @@ module.exports = {
     },
   },
   displayName: "lib",
-  preset: "../../jest.preset.js",
+  preset: "../../jest.preset.cjs",
 };
