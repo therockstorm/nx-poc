@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "CommonJS",
     "outDir": "../../dist/out-tsc"
   },
-  "exclude": ["cdk.out"],
   "extends": "../../tsconfig.base.json",
   "include": ["**/*.ts", "**/*.tsx"],
-  "references": [{ "path": "../lib" }]
+  "references": []
 }

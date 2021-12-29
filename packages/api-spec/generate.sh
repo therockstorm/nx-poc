@@ -5,7 +5,7 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli:latest gen
     --input-spec /local/api.yml \
     --generator-name typescript-axios \
     --config /local/config.yml \
-    --output /local/client-node
+    --output /local/api-client-node
 
 # sed -i "" "s/, COLLECTION_FORMATS, /, /" api.ts
 # sed -i "" "s/, setApiKeyToObject, /, /" api.ts

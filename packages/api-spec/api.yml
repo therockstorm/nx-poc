@@ -5,7 +5,7 @@ info:
   contact:
     name: Mr. Support
   description: My test API.
-  title: new-new API
+  title: nx-poc API
   version: "1.0"
 servers:
   - url: http://localhost:3000

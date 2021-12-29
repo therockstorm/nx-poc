@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * new-new API
+ * nx-poc API
  * My test API.
  *
  * The version of the OpenAPI document: 1.0
@@ -12,9 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { Configuration } from "./configuration";
+import type { Configuration } from "./configuration";
 import { RequiredError, RequestArgs } from "./base";
-import { AxiosInstance, AxiosResponse } from "axios";
+import type { AxiosInstance, AxiosResponse } from "axios";
 
 /**
  *

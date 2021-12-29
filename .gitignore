@@ -3,6 +3,7 @@
 !/.vscode/tasks.json
 !/.vscode/launch.json
 !/.vscode/extensions.json
+cdk.out
 /coverage
 /dist
 node_modules

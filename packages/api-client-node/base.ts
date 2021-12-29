@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * new-new API
+ * nx-poc API
  * My test API.
  *
  * The version of the OpenAPI document: 1.0

@@ -3,7 +3,7 @@
   "projects": {
     "api": "packages/api",
     "api-spec": "packages/api-spec",
-    "client-node": "packages/client-node",
+    "api-client-node": "packages/api-client-node",
     "lib": "packages/lib",
     "scripts": "packages/scripts",
     "web": "packages/web"
