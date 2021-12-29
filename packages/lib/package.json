@@ -3,11 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "projectType": "library",
-  "nx": {
-    "tags": [
-      "scope:shared"
-    ]
-  },
   "devDependencies": {
     "@types/jest": "27.0.3",
     "@types/node": "17.0.0",
@@ -20,9 +15,5 @@
     "immer": "9.0.7",
     "pino": "7.6.2"
   },
-  "scripts": {
-    "build": "tsc --build",
-    "lint": "eslint **/*.ts --fix",
-    "test": "jest --coverage"
-  }
+  "scripts": {}
 }

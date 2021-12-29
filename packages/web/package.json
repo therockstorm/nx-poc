@@ -2,12 +2,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "projectType": "app",
-  "nx": {
-    "tags": [
-      "scope:client"
-    ]
-  },
+  "projectType": "application",
   "devDependencies": {
     "@types/jest": "27.0.3",
     "@types/node": "17.0.0",
@@ -19,9 +14,6 @@
     "lib": "*"
   },
   "scripts": {
-    "build": "tsc --build",
-    "clean": "rm -rf coverage/ dist/",
-    "lint": "eslint **/*.ts --fix",
-    "start": "ts-node ./src/index.ts"
+    "dev": "ts-node ./src/index.ts"
   }
 }

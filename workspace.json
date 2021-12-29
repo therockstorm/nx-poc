@@ -1,12 +1,163 @@
 {
   "version": 2,
   "projects": {
-    "api": { "root": "packages/api" },
-    "api-spec": { "root": "packages/api-spec" },
-    "client-node": { "root": "packages/client-node" },
-    "hello-tsc": { "root": "packages/hello-tsc" },
-    "lib": { "root": "packages/lib" },
-    "scripts": { "root": "packages/scripts" },
-    "web": { "root": "packages/web" }
+    "api": {
+      "root": "packages/api",
+      "sourceRoot": "packages/api/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/api",
+            "main": "packages/api/src/index.ts",
+            "tsConfig": "packages/api/tsconfig.json",
+            "assets": ["packages/api/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/api/**/*.ts"]
+          }
+        }
+      },
+      "tags": ["scope:api"]
+    },
+    "api-spec": {
+      "root": "packages/api-spec",
+      "tags": ["scope:domain"]
+    },
+    "client-node": {
+      "root": "packages/client-node",
+      "sourceRoot": "packages/client-node",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/client-node",
+            "main": "packages/client-node/src/index.ts",
+            "tsConfig": "packages/client-node/tsconfig.json",
+            "assets": ["packages/client-node/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/client-node/**/*.ts"]
+          }
+        }
+      },
+      "tags": ["scope:shared"]
+    },
+    "hello-tsc": {
+      "root": "packages/hello-tsc",
+      "sourceRoot": "packages/hello-tsc/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/hello-tsc",
+            "main": "packages/hello-tsc/src/index.ts",
+            "tsConfig": "packages/hello-tsc/tsconfig.lib.json",
+            "assets": ["packages/hello-tsc/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/hello-tsc/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "coverage": true,
+            "jestConfig": "packages/hello-tsc/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": ["scope:shared"]
+    },
+    "lib": {
+      "root": "packages/lib",
+      "sourceRoot": "packages/lib/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/lib",
+            "main": "packages/lib/src/index.ts",
+            "tsConfig": "packages/lib/tsconfig.json",
+            "assets": ["packages/lib/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/lib/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "coverage": true,
+            "jestConfig": "packages/lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": ["scope:shared"]
+    },
+    "scripts": {
+      "root": "packages/scripts",
+      "sourceRoot": "packages/scripts",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/scripts",
+            "main": "packages/scripts/index.mjs",
+            "tsConfig": "packages/scripts/tsconfig.json",
+            "assets": ["packages/scripts/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/scripts/**/*.mjs"]
+          }
+        }
+      },
+      "tags": ["scope:shared"]
+    },
+    "web": {
+      "root": "packages/web",
+      "sourceRoot": "packages/web/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/web",
+            "main": "packages/web/src/index.ts",
+            "tsConfig": "packages/web/tsconfig.json",
+            "assets": ["packages/web/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/web/**/*.ts"]
+          }
+        }
+      },
+      "tags": ["scope:client"]
+    }
   }
 }

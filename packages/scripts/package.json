@@ -7,7 +7,6 @@
     "zx": "4.2.0"
   },
   "scripts": {
-    "start": "./index.mjs",
-    "lint": "eslint **/*.mjs --fix"
+    "dev": "./index.mjs"
   }
 }

@@ -1,21 +1,21 @@
 {
   "root": true,
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "ignorePatterns": ["**/*"],
   "plugins": ["@nrwl/nx", "simple-import-sort"],
   "overrides": [
     {
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "files": ["*.ts", "*.tsx"],
+      "files": ["*.ts", "*.tsx", "*.mjs"],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
             "allow": [],
+            "allowCircularSelfDependency": false,
+            "banTransitiveDependencies": true,
             "depConstraints": [
               {
                 "sourceTag": "scope:api",
-                "bannedExternalImports": ["*svelte*"],
                 "onlyDependOnLibsWithTags": ["scope:shared", "scope:domain"]
               },
               {
@@ -24,12 +24,10 @@
               },
               {
                 "sourceTag": "scope:domain",
-                "bannedExternalImports": ["*svelte*"],
                 "onlyDependOnLibsWithTags": ["scope:domain"]
               },
               {
                 "sourceTag": "scope:shared",
-                "bannedExternalImports": ["*svelte*"],
                 "onlyDependOnLibsWithTags": ["scope:shared"]
               }
             ],

@@ -1,4 +1,7 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"]
+  "ignorePatterns": ["!**/*", "node_modules"],
+  "rules": {
+    "no-restricted-imports": ["error", "svelte"]
+  }
 }

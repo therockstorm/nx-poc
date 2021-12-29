@@ -1,14 +1,14 @@
 module.exports = {
-  displayName: "hello-tsc",
-  preset: "../../jest.preset.js",
-  globals: {
-    "ts-jest": {
-      tsconfig: "<rootDir>/tsconfig.spec.json",
+  collectCoverageFrom: ["**/src/**", "!**/src/__*__/**"],
+  coverageDirectory: "../../coverage/packages/hello-tsc",
+  coverageThreshold: {
+    global: {
+      branches: 10,
+      functions: 10,
+      lines: 10,
+      statements: 10,
     },
   },
-  transform: {
-    "^.+\\.[tj]s$": "ts-jest",
-  },
-  moduleFileExtensions: ["ts", "js", "html"],
-  coverageDirectory: "../../coverage/packages/hello-tsc",
+  displayName: "hello-tsc",
+  preset: "../../jest.preset.js",
 };

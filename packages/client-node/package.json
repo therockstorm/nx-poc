@@ -13,8 +13,5 @@
   "dependencies": {
     "axios": "0.24.0"
   },
-  "scripts": {
-    "build": "tsc --build",
-    "lint": "eslint **/*.ts --fix"
-  }
+  "scripts": {}
 }
