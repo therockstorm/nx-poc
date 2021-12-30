@@ -5,6 +5,11 @@
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "matchDatasources": ["npm"],
+      "prCreation": "not-pending",
+      "stabilityDays": 3
     }
   ]
 }

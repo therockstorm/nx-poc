@@ -10,6 +10,14 @@ info:
 servers:
   - url: http://localhost:3000
     description: local
+x-amazon-apigateway-request-validators:
+  all:
+    validateRequestBody: true
+    validateRequestParameters: true
+  params-only:
+    validateRequestBody: false
+    validateRequestParameters: true
+x-amazon-apigateway-request-validator: params-only
 paths:
   /users/{id}:
     parameters:
@@ -39,6 +47,20 @@ paths:
         "404":
           description: User not found.
       tags: [users]
+      x-amazon-apigateway-auth:
+        type: none
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: "{{integrationUri}}"
+        credentials: "{{integrationCredentials}}"
+        httpMethod: GET
+        responses:
+          2\\d{2}:
+            statusCode: "200"
+          default:
+            statusCode: "400"
+            responseTemplates:
+              "application/json": "json 400 response template"
   /users:
     post:
       description: Create a new user.
@@ -72,5 +94,20 @@ paths:
                   email: alice.smith@gmail.com
                   name: Alice Smith
       tags: [users]
+      x-amazon-apigateway-auth:
+        type: none
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: "{{integrationUri}}"
+        credentials: "{{integrationCredentials}}"
+        httpMethod: POST
+        responses:
+          2\\d{2}:
+            statusCode: "200"
+          default:
+            statusCode: "400"
+            responseTemplates:
+              "application/json": "json 400 response template"
+      x-amazon-apigateway-request-validator: all
 components:
   securitySchemes: {}

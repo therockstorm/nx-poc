@@ -807,6 +807,22 @@
   dependencies:
     esquery "^1.0.1"
 
+"@renovosolutions/cdk-library-certbot@^2.1.31":
+  version "2.1.31"
+  resolved "https://registry.yarnpkg.com/@renovosolutions/cdk-library-certbot/-/cdk-library-certbot-2.1.31.tgz#cb1c125aefcba55af440190e286ea475faebfd76"
+  integrity sha512-HImfvydzTMaczsybQRzxNJ1mBNjt2yG7MdNK7MlFbOBQ3zEORcTK+C/171GnBDwubsYMfDTQtlIi/S/JJamtrQ==
+  dependencies:
+    "@renovosolutions/cdk-library-one-time-event" "^2.0.2"
+    aws-cdk-lib "^2.3.0"
+
+"@renovosolutions/cdk-library-one-time-event@^2.0.2":
+  version "2.0.26"
+  resolved "https://registry.yarnpkg.com/@renovosolutions/cdk-library-one-time-event/-/cdk-library-one-time-event-2.0.26.tgz#7d80cf4ea79aa44a1e325b23cda74e0f97aae636"
+  integrity sha512-nDC6Rwv6tZ4wF1SXOoUXGzoEUHGD40Kjq29PFHccSShuaTfpcN6EDMVacxv3JEJeEqypBIHip+lPI95RxwuqYQ==
+  dependencies:
+    aws-cdk-lib "^2.0.0"
+    constructs "^10.0.0"
+
 "@rollup/plugin-commonjs@^20.0.0":
   version "20.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-20.0.0.tgz#3246872dcbcb18a54aaa6277a8c7d7f1b155b745"
@@ -1677,7 +1693,7 @@ atomic-sleep@^1.0.0:
   resolved "https://registry.yarnpkg.com/atomic-sleep/-/atomic-sleep-1.0.0.tgz#eb85b77a601fc932cfe432c5acd364a9e2c9075b"
   integrity sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==
 
-aws-cdk-lib@2.3.0:
+aws-cdk-lib@2.3.0, aws-cdk-lib@^2.0.0, aws-cdk-lib@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.3.0.tgz#9592e51f51d012e1e56f851700d1b8e9687eee93"
   integrity sha512-fVQ7x+ahOmzcy5KCw+EaYp0II3igglJSpi/Rs4OyLrCxa7GBZ4G9iDu0IAPKjppw5IX3UshklmdfkEFP8d1b9w==
@@ -2154,7 +2170,7 @@ console-browserify@1.1.x:
   dependencies:
     date-now "^0.1.4"
 
-constructs@10.0.17:
+constructs@10.0.17, constructs@^10.0.0:
   version "10.0.17"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.17.tgz#c71d82003435bac36a33abe15910a7db1596310a"
   integrity sha512-mO9tUB/zaoYzVDjspro9TqZg3eSR0iL27WYiUIpMSPKpRaYVyJnP/Be60P1tGGAJfNb48mMMytw7XhfF+bYpTw==
