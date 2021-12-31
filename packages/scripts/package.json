@@ -9,6 +9,6 @@
     "dev": "./index.mjs"
   },
   "dependencies": {
-    "@octokit/rest": "^18.12.0"
+    "@octokit/rest": "18.12.0"
   }
 }
