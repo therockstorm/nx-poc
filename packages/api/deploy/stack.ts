@@ -3,7 +3,7 @@ import "source-map-support/register";
 import {
   App,
   aws_apigateway as apigateway,
-  aws_certificatemanager as acm,
+  // aws_certificatemanager as acm,
   aws_iam as iam,
   aws_lambda as lambda,
   aws_lambda_nodejs as lambdaNodeJs,
@@ -26,7 +26,7 @@ interface Name {
   readonly name: string;
 }
 
-const domain = "watchtower.dev";
+// const domain = "watchtower.dev";
 
 export class DeployStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -45,24 +45,25 @@ export class DeployStack extends Stack {
       `arn:aws:apigateway:${this.region}:lambda:path/2015-03-31/functions/${func.functionArn}/invocations`
     );
     const apiNames = this.stackResourceName(PROJECT, "openapi");
-    const certNames = this.stackResourceName(PROJECT, "cert");
+    // const certNames = this.stackResourceName(PROJECT, "cert");
     // const zoneNames = this.stackResourceName(Project, "hostedZone");
-    // const myHostedZone = new route53.HostedZone(this, zoneNames.id, {
+    // const hostedZone = new route53.HostedZone(this, zoneNames.id, {
     //   zoneName: domain,
     // });
-    const certificate = new acm.Certificate(this, certNames.id, {
-      domainName: `*.${domain}`,
-      validation: acm.CertificateValidation.fromDns(),
-    });
+    // const certificate = new acm.DnsValidatedCertificate(this, certNames.id, {
+    //   domainName: `*.${domain}`,
+    //   hostedZone,
+    //   region: "us-east-1",
+    // });
     const api = new apigateway.SpecRestApi(this, apiNames.id, {
       apiDefinition: apigateway.ApiDefinition.fromInline(load(spec)),
       deployOptions: { tracingEnabled: true },
-      domainName: {
-        certificate,
-        domainName: `api.${domain}`,
-        endpointType: apigateway.EndpointType.EDGE,
-        securityPolicy: apigateway.SecurityPolicy.TLS_1_2,
-      },
+      // domainName: {
+      //   certificate,
+      //   domainName: `api.${domain}`,
+      //   endpointType: apigateway.EndpointType.EDGE,
+      //   securityPolicy: apigateway.SecurityPolicy.TLS_1_2,
+      // },
       failOnWarnings: true,
     });
 

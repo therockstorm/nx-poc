@@ -46,6 +46,10 @@ paths:
                     name: Alice Smith
         "404":
           description: User not found.
+        "413":
+          description: Payload too large.
+        "414":
+          description: URI too long.
       tags: [users]
       x-amazon-apigateway-integration:
         httpMethod: POST
