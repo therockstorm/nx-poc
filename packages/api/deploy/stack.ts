@@ -1,9 +1,9 @@
 import "source-map-support/register";
 
-import { Certbot } from "@renovosolutions/cdk-library-certbot";
 import {
   App,
   aws_apigateway as apigateway,
+  aws_certificatemanager as acm,
   aws_iam as iam,
   aws_lambda as lambda,
   aws_lambda_nodejs as lambdaNodeJs,
@@ -14,11 +14,12 @@ import {
 import { camelCase } from "camel-case";
 import type { Construct } from "constructs";
 import { readFileSync } from "fs";
+import { load } from "js-yaml";
 import { envVar } from "lib/src";
 import { join } from "path";
 import { upperCaseFirst } from "upper-case-first";
 
-import { Project, Region, Stage } from "../src/constants";
+import { PROJECT, REGION, STAGE } from "../src/constants";
 
 interface Name {
   readonly id: string;
@@ -26,7 +27,6 @@ interface Name {
 }
 
 const domain = "watchtower.dev";
-declare const acmCertificate: any;
 
 export class DeployStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -35,16 +35,7 @@ export class DeployStack extends Stack {
     const func = this.lambda("api", {
       entry: join(__dirname, "..", "src", "handler.ts"),
     });
-    const apiNames = this.stackResourceName(Project, "api");
-    const certNames = this.stackResourceName(Project, "cert");
 
-    new Certbot(this, certNames.id, {
-      letsencryptDomains: [`api.${domain}`].join(","),
-      letsencryptEmail: "webmaster@rocky.dev",
-      hostedZoneNames: [domain],
-    });
-
-    // TODO: https://github.com/aws/aws-cdk/issues/8347#issuecomment-651900511
     const spec = readFileSync(
       join(__dirname, "..", "..", "api-spec", "resolved.yml"),
       "utf8"
@@ -53,19 +44,34 @@ export class DeployStack extends Stack {
       "{{integrationUri}}",
       `arn:aws:apigateway:${this.region}:lambda:path/2015-03-31/functions/${func.functionArn}/invocations`
     );
-    const role = iam.spec.replaceAll(
-      "{{integrationCredentials}}",
-      api.roleArn()
-    );
-
+    const apiNames = this.stackResourceName(PROJECT, "openapi");
+    const certNames = this.stackResourceName(PROJECT, "cert");
+    // const zoneNames = this.stackResourceName(Project, "hostedZone");
+    // const myHostedZone = new route53.HostedZone(this, zoneNames.id, {
+    //   zoneName: domain,
+    // });
+    const certificate = new acm.Certificate(this, certNames.id, {
+      domainName: `*.${domain}`,
+      validation: acm.CertificateValidation.fromDns(),
+    });
     const api = new apigateway.SpecRestApi(this, apiNames.id, {
-      apiDefinition: apigateway.ApiDefinition.fromAsset("path-to-file.yml"),
+      apiDefinition: apigateway.ApiDefinition.fromInline(load(spec)),
+      deployOptions: { tracingEnabled: true },
       domainName: {
-        certificate: acmCertificate,
+        certificate,
         domainName: `api.${domain}`,
+        endpointType: apigateway.EndpointType.EDGE,
+        securityPolicy: apigateway.SecurityPolicy.TLS_1_2,
       },
       failOnWarnings: true,
     });
+
+    func.grantInvoke(
+      new iam.ServicePrincipal("apigateway.amazonaws.com").withConditions({
+        ArnLike: { "aws:SourceArn": api.arnForExecuteApi() },
+        StringEquals: { "aws:SourceAccount": this.account },
+      })
+    );
   }
 
   private lambda(
@@ -75,15 +81,14 @@ export class DeployStack extends Stack {
     const names = this.stackResourceName(name, "func", true);
     return new lambdaNodeJs.NodejsFunction(this, names.id, {
       bundling: { minify: true, sourceMap: true },
-      environment: {
-        STAGE: Stage,
-        ...args.environment,
-      },
+      environment: { STAGE: STAGE, ...args.environment },
       functionName: names.name,
       handler: "handle",
+      insightsVersion: lambda.LambdaInsightsVersion.VERSION_1_0_119_0,
       logRetention: 7,
       runtime: lambda.Runtime.NODEJS_14_X,
       timeout: Duration.seconds(10),
+      tracing: lambda.Tracing.ACTIVE,
       ...args,
     });
   }
@@ -95,7 +100,7 @@ export class DeployStack extends Stack {
   ): Name {
     return {
       id: stackId(name, resource),
-      name: `${name}-${this.region}${addEnv ? `-${Stage}` : ""}`,
+      name: `${name}-${this.region}${addEnv ? `-${STAGE}` : ""}`,
     };
   }
 }
@@ -108,12 +113,12 @@ function main(): void {
   new DeployStack(new App(), "DeployStack", {
     env: {
       account: process.env.CDK_DEFAULT_ACCOUNT,
-      region: Region ?? process.env.CDK_DEFAULT_REGION,
+      region: REGION ?? process.env.CDK_DEFAULT_REGION,
     },
     tags: {
       Creator: "cdk",
-      Environment: Stage,
-      Project: Project,
+      Environment: STAGE,
+      Project: PROJECT,
       Revision: envVar("GIT_SHORT_REV"),
     },
   });

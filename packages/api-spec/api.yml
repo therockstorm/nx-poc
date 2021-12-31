@@ -47,20 +47,13 @@ paths:
         "404":
           description: User not found.
       tags: [users]
-      x-amazon-apigateway-auth:
-        type: none
       x-amazon-apigateway-integration:
+        httpMethod: POST
+        responses:
+          default:
+            statusCode: "200"
         type: aws_proxy
         uri: "{{integrationUri}}"
-        credentials: "{{integrationCredentials}}"
-        httpMethod: GET
-        responses:
-          2\\d{2}:
-            statusCode: "200"
-          default:
-            statusCode: "400"
-            responseTemplates:
-              "application/json": "json 400 response template"
   /users:
     post:
       description: Create a new user.
@@ -94,20 +87,13 @@ paths:
                   email: alice.smith@gmail.com
                   name: Alice Smith
       tags: [users]
-      x-amazon-apigateway-auth:
-        type: none
       x-amazon-apigateway-integration:
-        type: aws_proxy
-        uri: "{{integrationUri}}"
-        credentials: "{{integrationCredentials}}"
         httpMethod: POST
         responses:
-          2\\d{2}:
-            statusCode: "200"
           default:
-            statusCode: "400"
-            responseTemplates:
-              "application/json": "json 400 response template"
+            statusCode: "200"
+        type: aws_proxy
+        uri: "{{integrationUri}}"
       x-amazon-apigateway-request-validator: all
 components:
   securitySchemes: {}

@@ -807,22 +807,6 @@
   dependencies:
     esquery "^1.0.1"
 
-"@renovosolutions/cdk-library-certbot@^2.1.31":
-  version "2.1.32"
-  resolved "https://registry.yarnpkg.com/@renovosolutions/cdk-library-certbot/-/cdk-library-certbot-2.1.32.tgz#27f075b749a5c5aaae7bf0fc2f6d2e734afc883c"
-  integrity sha512-Rc6mVwmfwXinzuwpZB8RXOCwSNfHjCCSMJ25LGI29AfP0nCIlHHSUKdPa/gnZhU1VW8gH34OsiW9yVk+BR9Ofw==
-  dependencies:
-    "@renovosolutions/cdk-library-one-time-event" "^2.0.2"
-    aws-cdk-lib "^2.3.0"
-
-"@renovosolutions/cdk-library-one-time-event@^2.0.2":
-  version "2.0.27"
-  resolved "https://registry.yarnpkg.com/@renovosolutions/cdk-library-one-time-event/-/cdk-library-one-time-event-2.0.27.tgz#a773e852773833ac39299d7e1dd0a95ca60d1f83"
-  integrity sha512-Aza4v72Nn3X921TpP+FzvZdF2/f0gOxl4euSeLtFk6u5n/oEcp84EL+OMLJXZPrungw11a/QGsEHUMa26wQSOw==
-  dependencies:
-    aws-cdk-lib "^2.0.0"
-    constructs "^10.0.0"
-
 "@rollup/plugin-commonjs@^20.0.0":
   version "20.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-20.0.0.tgz#3246872dcbcb18a54aaa6277a8c7d7f1b155b745"
@@ -1250,6 +1234,11 @@
   dependencies:
     jest-diff "^27.0.0"
     pretty-format "^27.0.0"
+
+"@types/js-yaml@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-4.0.5.tgz#738dd390a6ecc5442f35e7f03fa1431353f7e138"
+  integrity sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA==
 
 "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.7", "@types/json-schema@^7.0.9":
   version "7.0.9"
@@ -1685,7 +1674,7 @@ atomic-sleep@^1.0.0:
   resolved "https://registry.yarnpkg.com/atomic-sleep/-/atomic-sleep-1.0.0.tgz#eb85b77a601fc932cfe432c5acd364a9e2c9075b"
   integrity sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==
 
-aws-cdk-lib@2.3.0, aws-cdk-lib@^2.0.0, aws-cdk-lib@^2.3.0:
+aws-cdk-lib@2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.3.0.tgz#9592e51f51d012e1e56f851700d1b8e9687eee93"
   integrity sha512-fVQ7x+ahOmzcy5KCw+EaYp0II3igglJSpi/Rs4OyLrCxa7GBZ4G9iDu0IAPKjppw5IX3UshklmdfkEFP8d1b9w==
@@ -2162,7 +2151,7 @@ console-browserify@1.1.x:
   dependencies:
     date-now "^0.1.4"
 
-constructs@10.0.19, constructs@^10.0.0:
+constructs@10.0.19:
   version "10.0.19"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.19.tgz#8f4b6fec095894d27c7e51d17c73275255660ee0"
   integrity sha512-+rqNGi8W/oSr9G/AJTbnvMWlDo6D/A1X6Qx1EhQjDWmKxXUpcs1BvK85ColF1h64DyNBuuoO5P/W6ZobdatyeQ==
