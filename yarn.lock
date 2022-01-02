@@ -107,7 +107,7 @@
     "@aws-sdk/types" "3.40.0"
     tslib "^2.3.0"
 
-"@aws-sdk/client-rds-data@^3.45.0":
+"@aws-sdk/client-rds-data@3.45.0":
   version "3.45.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-rds-data/-/client-rds-data-3.45.0.tgz#fe2222727c7f1f58ef2448716107de03d1bb1b1e"
   integrity sha512-1OqCEPIfmvkpiWDQ+zbMeEyi+wFEXOmOulJGJ64Pf8cEHsCVv/pLF6KT8SGhupZFIh+/iJMGs/CJJDs/hogfpg==
