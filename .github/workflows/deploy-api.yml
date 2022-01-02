@@ -18,4 +18,4 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "SHA ${{ github.event.inputs.sha }}"
+      - run: echo "SHA ${{ (github.event.inputs || inputs).sha }}"
