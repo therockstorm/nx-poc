@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base"],
+  "extends": ["config:base", "schedule:earlyTuesdays"],
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
@@ -11,5 +11,6 @@
       "prCreation": "not-pending",
       "stabilityDays": 3
     }
-  ]
+  ],
+  "timezone": "America/Chicago"
 }

@@ -140,7 +140,7 @@ export class DeployStack extends Stack {
       insightsVersion: lambda.LambdaInsightsVersion.VERSION_1_0_119_0,
       logRetention: 7,
       runtime: lambda.Runtime.NODEJS_14_X,
-      timeout: Duration.seconds(10),
+      timeout: Duration.seconds(30),
       tracing: lambda.Tracing.ACTIVE,
       ...args,
       environment: { STAGE: STAGE, ...args.environment },
