@@ -86,6 +86,53 @@ export class DeployStack extends Stack {
       },
     });
 
+    /*
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "AccessTableAllIndexesOnBooks",
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:GetItem",
+                "dynamodb:BatchGetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:ConditionCheckItem"
+              ],
+              "Resource": [
+                  "arn:aws:dynamodb:us-west-2:123456789012:table/Books",
+                  "arn:aws:dynamodb:us-west-2:123456789012:table/Books/index/*"
+              ]
+          }
+      ]
+    }
+
+    "Statement" : [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "rds-data:ExecuteSql",
+        "rds-data:ExecuteStatement",
+        "rds-data:BatchExecuteStatement",
+        "rds-data:BeginTransaction",
+        "rds-data:RollbackTransaction",
+        "rds-data:CommitTransaction"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [ "secretsmanager:GetSecretValue" ],
+      "Resource": "arn:aws:secretsmanager:{REGION}:{ACCOUNT-ID}:secret:{PATH-TO-SECRET}/*"
+    }
+  ]
+*/
+
     const spec = readFileSync(
       join(__dirname, "..", "..", "api-spec", "resolved.yml"),
       "utf8"

@@ -2031,20 +2031,15 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.6.tgz#cc1589c9ee853b389e67e8fb4384e0f250a139b9"
   integrity sha512-+XBAjfZmmivILUzO0HwBJoYkAyyySSLg5KCGBDFLomJo0sV6szvVLAf4ANZZ0pfWzgEds5KmGLG9D5hfEqOhaA==
 
-"@types/node@16.11.17", "@types/node@^16.6":
-  version "16.11.17"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.17.tgz#ae146499772e33fc6382e1880bc567e41a528586"
-  integrity sha512-C1vTZME8cFo8uxY2ui41xcynEotVkczIVI5AjLmy5pkpBv/FtG+jhtOlfcPysI8VRVwoOMv6NJm44LGnoMSWkw==
-
-"@types/node@17.0.0":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.0.tgz#62797cee3b8b497f6547503b2312254d4fe3c2bb"
-  integrity sha512-eMhwJXc931Ihh4tkU+Y7GiLzT/y/DBNpNtr4yU9O2w3SYBsr9NaOPhQlLKRmoWtI54uNwuo0IOUFQjVOTZYRvw==
-
 "@types/node@^10.17.60":
   version "10.17.60"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.60.tgz#35f3d6213daed95da7f0f73e75bcc6980e90597b"
   integrity sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==
+
+"@types/node@^16.6":
+  version "16.11.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.17.tgz#ae146499772e33fc6382e1880bc567e41a528586"
+  integrity sha512-C1vTZME8cFo8uxY2ui41xcynEotVkczIVI5AjLmy5pkpBv/FtG+jhtOlfcPysI8VRVwoOMv6NJm44LGnoMSWkw==
 
 "@types/prettier@^2.1.5":
   version "2.4.2"
@@ -2924,10 +2919,10 @@ console-browserify@1.1.x:
   dependencies:
     date-now "^0.1.4"
 
-constructs@10.0.19:
-  version "10.0.19"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.19.tgz#8f4b6fec095894d27c7e51d17c73275255660ee0"
-  integrity sha512-+rqNGi8W/oSr9G/AJTbnvMWlDo6D/A1X6Qx1EhQjDWmKxXUpcs1BvK85ColF1h64DyNBuuoO5P/W6ZobdatyeQ==
+constructs@10.0.22:
+  version "10.0.22"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.22.tgz#a8540f0f3fcfb7ae1a3bdbc9b554bf3ef66bcf3a"
+  integrity sha512-GKcEeKhW/job0wGONqxXDalh2kpj0GYZMWKuyreoT7LcP9VR4dflvVWeA5iD7QB/u0BO0Hqz5Cahisf7Otu89w==
 
 convert-source-map@^1.4.0, convert-source-map@^1.6.0, convert-source-map@^1.7.0:
   version "1.8.0"
