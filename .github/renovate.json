@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", "schedule:earlyTuesdays"],
+  "extends": ["config:base"],
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
@@ -12,5 +12,6 @@
       "stabilityDays": 3
     }
   ],
+  "schedule": ["before 3am on Tuesday"],
   "timezone": "America/Chicago"
 }
