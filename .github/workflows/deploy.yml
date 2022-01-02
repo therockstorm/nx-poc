@@ -1,0 +1,14 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: "Commit SHA"
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "SHA ${{ github.event.inputs.sha }}"
