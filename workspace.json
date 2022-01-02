@@ -2,8 +2,8 @@
   "version": 2,
   "projects": {
     "api": "packages/api",
-    "api-spec": "packages/api-spec",
     "api-client-node": "packages/api-client-node",
+    "api-spec": "packages/api-spec",
     "lib": "packages/lib",
     "scripts": "packages/scripts",
     "web": "packages/web"

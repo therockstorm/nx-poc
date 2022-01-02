@@ -35,3 +35,4 @@
     "clean": "rm -rf coverage dist node_modules tmp"
   }
 }
+
