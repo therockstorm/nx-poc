@@ -3,11 +3,14 @@ import "source-map-support/register";
 import {
   App,
   aws_apigateway as apigateway,
+  aws_ec2 as ec2,
   // aws_certificatemanager as acm,
   aws_iam as iam,
   aws_lambda as lambda,
   aws_lambda_nodejs as lambdaNodeJs,
+  aws_rds as rds,
   Duration,
+  RemovalPolicy,
   Stack,
   StackProps,
 } from "aws-cdk-lib";
@@ -32,18 +35,62 @@ export class DeployStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const func = this.lambda("api", {
-      entry: join(__dirname, "..", "src", "handler.ts"),
+    const vpc = new ec2.Vpc(this, "Vpc", {
+      cidr: "10.0.0.0/16",
+      maxAzs: 2,
+      natGateways: 0,
+      subnetConfiguration: [
+        {
+          cidrMask: 24,
+          name: "private-isolated-1",
+          subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
+        },
+      ],
+    });
+    vpc.addInterfaceEndpoint("sm", {
+      service: ec2.InterfaceVpcEndpointAwsService.SECRETS_MANAGER,
+    });
+    vpc.addInterfaceEndpoint("rds", {
+      service: ec2.InterfaceVpcEndpointAwsService.RDS_DATA,
+    });
+    const cluster = new rds.ServerlessCluster(this, "AuroraServerless", {
+      defaultDatabaseName: "rocky",
+      enableDataApi: true,
+      engine: rds.DatabaseClusterEngine.AURORA_POSTGRESQL,
+      parameterGroup: rds.ParameterGroup.fromParameterGroupName(
+        this,
+        "ParameterGroup",
+        "default.aurora-postgresql10"
+      ),
+      removalPolicy: RemovalPolicy.RETAIN,
+      scaling: {
+        autoPause: Duration.minutes(5),
+        minCapacity: rds.AuroraCapacityUnit.ACU_2,
+        maxCapacity: rds.AuroraCapacityUnit.ACU_2,
+      },
+      vpc,
+      vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_ISOLATED },
+    });
+    const secret = cluster.node.children.filter(
+      (child) => child instanceof rds.DatabaseSecret
+    )[0] as rds.DatabaseSecret;
+
+    const func = this.lambda({
+      name: "api",
+      args: {
+        entry: join(__dirname, "..", "src", "handler.ts"),
+        environment: {
+          DB_ARN: cluster.clusterArn,
+          DB_SECRET_ARN: secret.secretArn,
+        },
+      },
     });
 
     const spec = readFileSync(
       join(__dirname, "..", "..", "api-spec", "resolved.yml"),
       "utf8"
     );
-    spec.replaceAll(
-      "{{integrationUri}}",
-      `arn:aws:apigateway:${this.region}:lambda:path/2015-03-31/functions/${func.functionArn}/invocations`
-    );
+    const integrationArn = `arn:aws:apigateway:${this.region}:lambda:path/2015-03-31/functions/${func.functionArn}/invocations`;
     const apiNames = this.stackResourceName(PROJECT, "openapi");
     // const certNames = this.stackResourceName(PROJECT, "cert");
     // const zoneNames = this.stackResourceName(Project, "hostedZone");
@@ -56,7 +103,9 @@ export class DeployStack extends Stack {
     //   region: "us-east-1",
     // });
     const api = new apigateway.SpecRestApi(this, apiNames.id, {
-      apiDefinition: apigateway.ApiDefinition.fromInline(load(spec)),
+      apiDefinition: apigateway.ApiDefinition.fromInline(
+        load(spec.replaceAll("{{integrationUri}}", integrationArn))
+      ),
       deployOptions: { tracingEnabled: true },
       // domainName: {
       //   certificate,
@@ -73,16 +122,19 @@ export class DeployStack extends Stack {
         StringEquals: { "aws:SourceAccount": this.account },
       })
     );
+    cluster.grantDataApiAccess(func);
   }
 
-  private lambda(
-    name: string,
-    args: lambdaNodeJs.NodejsFunctionProps
-  ): lambdaNodeJs.NodejsFunction {
+  private lambda({
+    name,
+    args,
+  }: {
+    name: string;
+    args: lambdaNodeJs.NodejsFunctionProps;
+  }): lambdaNodeJs.NodejsFunction {
     const names = this.stackResourceName(name, "func", true);
     return new lambdaNodeJs.NodejsFunction(this, names.id, {
       bundling: { minify: true, sourceMap: true },
-      environment: { STAGE: STAGE, ...args.environment },
       functionName: names.name,
       handler: "handle",
       insightsVersion: lambda.LambdaInsightsVersion.VERSION_1_0_119_0,
@@ -91,6 +143,7 @@ export class DeployStack extends Stack {
       timeout: Duration.seconds(10),
       tracing: lambda.Tracing.ACTIVE,
       ...args,
+      environment: { STAGE: STAGE, ...args.environment },
     });
   }
 

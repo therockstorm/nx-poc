@@ -1,4 +1,15 @@
+import {
+  BatchExecuteStatementCommand,
+  RDSDataClient,
+} from "@aws-sdk/client-rds-data";
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { envVar } from "lib/src";
+
+import { REGION } from "./constants";
+
+const client = new RDSDataClient({ region: REGION });
+const DB_ARN = envVar("DB_ARN");
+const DB_SECRET_ARN = envVar("DB_SECRET_ARN");
 
 export async function handle(
   evt: APIGatewayProxyEvent
@@ -18,7 +29,21 @@ export async function handle(
     }
   }
 
-  if (evt.httpMethod === "GET") return response(200, "OK.");
+  if (evt.httpMethod === "GET") {
+    try {
+      const command = new BatchExecuteStatementCommand({
+        resourceArn: DB_ARN,
+        secretArn: DB_SECRET_ARN,
+        sql: `SELECT * FROM user;`,
+        database: "rocky",
+      });
+      const data = await client.send(command);
+      console.log(data);
+    } catch (error) {
+      console.error("Error calling DB.", error);
+    }
+    return response(200, "OK.");
+  }
 
   return response(400, "Invalid request.");
 }
