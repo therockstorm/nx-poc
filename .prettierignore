@@ -1,3 +1,4 @@
+.vercel_build_output
 /dist
 cdk.out
 /coverage

@@ -4,14 +4,6 @@
   "sourceRoot": "packages/web/src",
   "tags": ["scope:client"],
   "targets": {
-    "build": {
-      "executor": "@nrwl/js:tsc",
-      "options": {
-        "outputPath": "dist/packages/web",
-        "main": "packages/web/src/index.ts",
-        "tsConfig": "packages/web/tsconfig.json"
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {

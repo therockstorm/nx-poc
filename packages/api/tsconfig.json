@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "CommonJS",
-    "outDir": "../../dist/out-tsc"
+    "module": "CommonJS"
   },
   "exclude": ["cdk.out"],
   "extends": "../../tsconfig.base.json",

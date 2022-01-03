@@ -17,6 +17,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "outDir": "dist/out-tsc",
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipDefaultLibCheck": true,

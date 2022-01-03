@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "../../dist/out-tsc"
+    "baseUrl": "."
   },
   "extends": "../../tsconfig.base.json",
   "include": ["**/*.ts", "**/*.tsx"],
