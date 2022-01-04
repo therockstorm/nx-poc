@@ -19,3 +19,5 @@ package
 .env*
 !.env.example
 yarn-error.log
+
+.vercel

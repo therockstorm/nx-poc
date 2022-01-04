@@ -13,6 +13,12 @@
   },
   "exclude": ["src/**/*.spec.ts"],
   "extends": "../../tsconfig.base.json",
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.svelte",
+    "vercel.json"
+  ],
   "references": [{ "path": "../lib" }]
 }
