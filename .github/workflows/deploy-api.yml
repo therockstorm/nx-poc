@@ -22,11 +22,16 @@ jobs:
       contents: read
     steps:
       - run: echo "Deploying SHA ${{ (github.event.inputs || inputs).sha }}"
-      - uses: aws-actions/configure-aws-credentials@9b9980021ae276847827fe83dcfcac0072fb2532
+      - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-west-2
-          role-duration-seconds: 600
+          role-duration-seconds: 900
           role-session-name: GitHubActions
-          role-to-assume: ${{ secrets.DEPLOY_API_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::111685254296:role/DeployStack-GitHubuswest23E42E913-19WOJ9AAYE4I1
+      - uses: actions/checkout@v2
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v2
+        with: { node-version: "16" }
       - run: yarn
+      - run: yarn nx build api
       - run: yarn nx run api:deploy
