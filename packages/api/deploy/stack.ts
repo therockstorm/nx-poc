@@ -29,7 +29,10 @@ interface Name {
   readonly name: string;
 }
 
-// const domain = "watchtower.dev";
+const GH_USER = "therockstorm";
+const GH_REPO = "nx-poc";
+
+// const DOMAIN = "watchtower.dev";
 
 export class DeployStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -84,6 +87,22 @@ export class DeployStack extends Stack {
           DB_SECRET_ARN: secret.secretArn,
         },
       },
+    });
+
+    // See https://benoitboure.com/securely-access-your-aws-resources-from-github-actions
+    const providerNames = this.stackResourceName("GitHub", "Provider");
+    const provider = new iam.OpenIdConnectProvider(this, providerNames.id, {
+      url: "https://token.actions.githubusercontent.com",
+      clientIds: ["sts.amazonaws.com"],
+      thumbprints: ["a031c46782e6e6c662c2c87c76da9aa62ccabd8e"],
+    });
+    const roleNames = this.stackResourceName("GitHub", "Role");
+    new iam.Role(this, roleNames.name, {
+      assumedBy: new iam.OpenIdConnectPrincipal(provider).withConditions({
+        StringEquals: {
+          "token.actions.githubusercontent.com:sub": `repo:${GH_USER}/${GH_REPO}:*`,
+        },
+      }),
     });
 
     /*
@@ -142,10 +161,10 @@ export class DeployStack extends Stack {
     // const certNames = this.stackResourceName(PROJECT, "cert");
     // const zoneNames = this.stackResourceName(Project, "hostedZone");
     // const hostedZone = new route53.HostedZone(this, zoneNames.id, {
-    //   zoneName: domain,
+    //   zoneName: DOMAIN,
     // });
     // const certificate = new acm.DnsValidatedCertificate(this, certNames.id, {
-    //   domainName: `*.${domain}`,
+    //   domainName: `*.${DOMAIN}`,
     //   hostedZone,
     //   region: "us-east-1",
     // });
@@ -156,7 +175,7 @@ export class DeployStack extends Stack {
       deployOptions: { tracingEnabled: true },
       // domainName: {
       //   certificate,
-      //   domainName: `api.${domain}`,
+      //   domainName: `api.${DOMAIN}`,
       //   endpointType: apigateway.EndpointType.EDGE,
       //   securityPolicy: apigateway.SecurityPolicy.TLS_1_2,
       // },

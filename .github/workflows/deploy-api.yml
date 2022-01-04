@@ -16,6 +16,15 @@ on:
 
 jobs:
   deploy:
+    permissions:
+      id-token: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
-      - run: echo "SHA ${{ (github.event.inputs || inputs).sha }}"
+      - run: echo "Deploying SHA ${{ (github.event.inputs || inputs).sha }}"
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.DeployApiRoleArn }}
+          role-duration-seconds: 600
+          aws-region: us-west-2
+      - run: yarn nx run api:deploy
