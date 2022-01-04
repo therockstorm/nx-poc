@@ -99,7 +99,7 @@ export class DeployStack extends Stack {
     const roleNames = this.stackResourceName("GitHub", "Role");
     new iam.Role(this, roleNames.name, {
       assumedBy: new iam.OpenIdConnectPrincipal(provider).withConditions({
-        StringEquals: {
+        StringLike: {
           "token.actions.githubusercontent.com:sub": `repo:${GH_USER}/${GH_REPO}:*`,
         },
       }),
