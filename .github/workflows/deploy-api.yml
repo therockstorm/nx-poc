@@ -22,7 +22,7 @@ jobs:
       contents: read
     steps:
       - run: echo "Deploying SHA ${{ (github.event.inputs || inputs).sha }}"
-      - uses: aws-actions/configure-aws-credentials@v1
+      - uses: aws-actions/configure-aws-credentials@9b9980021ae276847827fe83dcfcac0072fb2532
         with:
           aws-region: us-west-2
           role-duration-seconds: 600
