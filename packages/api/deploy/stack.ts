@@ -112,6 +112,11 @@ export class DeployStack extends Stack {
               effect: iam.Effect.ALLOW,
               resources: ["arn:aws:iam::*:role/cdk-*"],
             }),
+            new iam.PolicyStatement({
+              actions: ["cloudformation:*"],
+              effect: iam.Effect.ALLOW,
+              resources: ["*"],
+            }),
           ],
         }),
       },
