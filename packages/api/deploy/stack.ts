@@ -103,6 +103,18 @@ export class DeployStack extends Stack {
           "token.actions.githubusercontent.com:sub": `repo:${GH_USER}/${GH_REPO}:*`,
         },
       }),
+      inlinePolicies: {
+        // https://stackoverflow.com/a/61102280
+        "assumeRole-allow-cdk": new iam.PolicyDocument({
+          statements: [
+            new iam.PolicyStatement({
+              actions: ["sts:AssumeRole"],
+              effect: iam.Effect.ALLOW,
+              resources: ["arn:aws:iam::*:role/cdk-*"],
+            }),
+          ],
+        }),
+      },
     });
 
     /*
