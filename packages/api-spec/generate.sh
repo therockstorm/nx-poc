@@ -7,9 +7,6 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli:latest gen
     --config /local/config.yml \
     --output /local/resolved
 
-mv resolved/openapi/openapi.yaml resolved.yml
-rm -rf resolved
-
 # docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli:latest generate \
 #     --input-spec /local/api.yml \
 #     --generator-name typescript-axios \

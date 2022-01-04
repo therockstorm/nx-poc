@@ -18,5 +18,4 @@ package
 .DS_Store
 .env*
 !.env.example
-resolved.yml
 yarn-error.log

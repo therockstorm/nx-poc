@@ -153,7 +153,15 @@ export class DeployStack extends Stack {
 */
 
     const spec = readFileSync(
-      join(__dirname, "..", "..", "api-spec", "resolved.yml"),
+      join(
+        __dirname,
+        "..",
+        "..",
+        "api-spec",
+        "resolved",
+        "openapi",
+        "openapi.yaml"
+      ),
       "utf8"
     );
     const integrationArn = `arn:aws:apigateway:${this.region}:lambda:path/2015-03-31/functions/${func.functionArn}/invocations`;
