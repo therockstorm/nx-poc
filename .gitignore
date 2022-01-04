@@ -4,6 +4,7 @@
 !/.vscode/tasks.json
 !/.vscode/launch.json
 !/.vscode/extensions.json
+.vercel
 .vercel_build_output
 build
 cdk.out
@@ -19,5 +20,3 @@ package
 .env*
 !.env.example
 yarn-error.log
-
-.vercel
