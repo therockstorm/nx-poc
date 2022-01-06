@@ -4,5 +4,6 @@
   },
   "exclude": ["cdk.out"],
   "extends": "../../tsconfig.base.json",
+  "include": ["**/*.ts"],
   "references": [{ "path": "../core" }]
 }

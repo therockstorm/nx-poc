@@ -13,6 +13,14 @@
         "tsConfig": "packages/api-client-node/tsconfig.json"
       }
     },
+    "gen-client": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "./generate.sh",
+        "cwd": "packages/api-client-node"
+      },
+      "outputs": ["packages/api-client-node"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {

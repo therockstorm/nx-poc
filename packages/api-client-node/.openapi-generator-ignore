@@ -1,4 +1,5 @@
 .gitignore
+.npmignore
 git_push.sh
 index.ts
 package.json

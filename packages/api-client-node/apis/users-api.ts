@@ -19,7 +19,7 @@ import globalAxios, {
 } from "axios";
 import type { Configuration } from "../configuration";
 // Some imports not used depending on template conditions
-// @ts-ignore
+
 import {
   DUMMY_BASE_URL,
   assertParamExists,
@@ -28,10 +28,11 @@ import {
   toPathString,
   createRequestFunction,
 } from "../common";
-// @ts-ignore
+
 import { BASE_PATH, RequestArgs, BaseAPI } from "../base";
-// @ts-ignore
-import { CreateUser, User } from "../models";
+
+import type { CreateUser, User } from "../models";
+
 /**
  * UsersApi - axios parameter creator
  * @export
