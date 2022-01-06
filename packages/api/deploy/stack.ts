@@ -1,6 +1,5 @@
 import "source-map-support/register";
 
-import { envVar } from "@nx-poc/core";
 import {
   App,
   aws_apigateway as apigateway,
@@ -17,6 +16,7 @@ import {
 } from "aws-cdk-lib";
 import { camelCase } from "camel-case";
 import type { Construct } from "constructs";
+import { envVar } from "core/src";
 import { readFileSync } from "fs";
 import { load } from "js-yaml";
 import { join } from "path";

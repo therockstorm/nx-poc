@@ -18,10 +18,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "dist/out-tsc",
-    "paths": {
-      "@nx-poc/hello-tsc": ["packages/hello-tsc/src/index.ts"],
-      "@nx-poc/core": ["packages/core/src/index.ts"]
-    },
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipDefaultLibCheck": true,

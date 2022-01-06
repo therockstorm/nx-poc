@@ -3,5 +3,6 @@
     "module": "CommonJS"
   },
   "exclude": ["cdk.out"],
-  "extends": "../../tsconfig.base.json"
+  "extends": "../../tsconfig.base.json",
+  "references": [{ "path": "../core" }]
 }
