@@ -1,4 +1,4 @@
-import { envVar } from "lib/src";
+import { envVar } from "@nx-poc/lib";
 
 export const PROJECT = "api";
 

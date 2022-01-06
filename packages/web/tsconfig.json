@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": ".",
     "checkJs": true,
     "esModuleInterop": true,
     "isolatedModules": true,
@@ -19,6 +18,5 @@
     "src/**/*.ts",
     "src/**/*.svelte",
     "vercel.json"
-  ],
-  "references": [{ "path": "../lib" }]
+  ]
 }

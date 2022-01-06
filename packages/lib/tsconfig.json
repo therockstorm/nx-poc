@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "module": "CommonJS"
   },
-  "extends": "../../tsconfig.base.json",
-  "include": ["**/*.ts", "**/*.tsx"],
-  "references": []
+  "extends": "../../tsconfig.base.json"
 }
