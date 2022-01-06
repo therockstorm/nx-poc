@@ -21,7 +21,7 @@ jobs:
       - run: yarn nx affected:build
       - run: yarn nx affected:lint
       - run: yarn nx affected:test
-      - run: yarn nx affected:deploy
+      - run: yarn nx deploy api
       - run: yarn nx-cloud stop-all-agents
   # deploy:
   #   needs: main
