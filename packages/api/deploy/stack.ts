@@ -1,6 +1,6 @@
 import "source-map-support/register";
 
-import { envVar } from "@nx-poc/lib";
+import { envVar } from "@nx-poc/core";
 import {
   App,
   aws_apigateway as apigateway,

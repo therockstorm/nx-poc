@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverageFrom: ["**/src/**", "!**/src/__*__/**"],
-  coverageDirectory: "../../coverage/packages/lib",
+  coverageDirectory: "../../coverage/packages/core",
   coverageThreshold: {
     global: {
       branches: 5,
@@ -9,6 +9,6 @@ module.exports = {
       statements: 5,
     },
   },
-  displayName: "lib",
+  displayName: "core",
   preset: "../../jest.preset.cjs",
 };

@@ -4,7 +4,7 @@
     "api": "packages/api",
     "api-client-node": "packages/api-client-node",
     "api-spec": "packages/api-spec",
-    "lib": "packages/lib",
+    "core": "packages/core",
     "scripts": "packages/scripts",
     "web": "packages/web"
   }

@@ -1,5 +1,5 @@
 import type { Handle } from "@sveltejs/kit/types/hooks";
-import { head } from "lib/src";
+import { head } from "core/src";
 
 import { headers as vercelHeaders } from "../vercel.json";
 

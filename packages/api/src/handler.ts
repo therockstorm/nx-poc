@@ -2,7 +2,7 @@ import {
   BatchExecuteStatementCommand,
   RDSDataClient,
 } from "@aws-sdk/client-rds-data";
-import { envVar } from "@nx-poc/lib";
+import { envVar } from "@nx-poc/core";
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
 import { REGION } from "./constants";

@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "daisyui": "1.21.0",
-    "lib": "*"
+    "core": "*"
   }
 }

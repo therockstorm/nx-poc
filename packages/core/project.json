@@ -1,30 +1,30 @@
 {
   "projectType": "library",
-  "root": "packages/lib",
-  "sourceRoot": "packages/lib/src",
+  "root": "packages/core",
+  "sourceRoot": "packages/core/src",
   "tags": ["scope:shared"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/lib",
-        "main": "packages/lib/src/index.ts",
-        "tsConfig": "packages/lib/tsconfig.json",
-        "assets": ["packages/lib/*.md"]
+        "outputPath": "dist/packages/core",
+        "main": "packages/core/src/index.ts",
+        "tsConfig": "packages/core/tsconfig.json",
+        "assets": ["packages/core/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["packages/lib/**/*.ts"]
+        "lintFilePatterns": ["packages/core/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
         "coverage": true,
-        "jestConfig": "packages/lib/jest.config.js"
+        "jestConfig": "packages/core/jest.config.js"
       }
     }
   }
