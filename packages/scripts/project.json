@@ -12,6 +12,14 @@
         "tsConfig": "packages/scripts/tsconfig.json"
       }
     },
+
+    "dev": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "./index.mjs",
+        "cwd": "packages/scripts"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {

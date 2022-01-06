@@ -4,10 +4,52 @@
   "sourceRoot": "packages/web/src",
   "tags": ["scope:client"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "svelte-kit build",
+        "cwd": "packages/web"
+      }
+    },
+    "check": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "svelte-check --tsconfig ./tsconfig.json",
+        "cwd": "packages/web"
+      }
+    },
+    "dev": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "svelte-kit dev",
+        "cwd": "packages/web"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": ["packages/web/**/*.ts"]
+      }
+    },
+    "package": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "svelte-kit package",
+        "cwd": "packages/web"
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "svelte-kit preview",
+        "cwd": "packages/web"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "NODE_OPTIONS=--experimental-vm-modules jest src",
+        "cwd": "packages/web"
       }
     }
   }

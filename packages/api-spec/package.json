@@ -4,9 +4,5 @@
   "private": true,
   "devDependencies": {
     "@stoplight/spectral": "6.1.0"
-  },
-  "scripts": {
-    "generate": "./generate.sh",
-    "lint": "spectral lint -F hint spec/api.yml"
   }
 }

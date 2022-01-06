@@ -33,6 +33,5 @@ jobs:
       - uses: actions/setup-node@v2
         with: { node-version: "16" }
       - run: yarn
-      - run: yarn nx run api-spec:generate
       - run: yarn nx build api
-      - run: yarn nx run api:deploy
+      - run: yarn nx deploy api

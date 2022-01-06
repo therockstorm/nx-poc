@@ -21,11 +21,12 @@ jobs:
       - run: yarn nx affected:build
       - run: yarn nx affected:lint
       - run: yarn nx affected:test
+      - run: yarn nx affected:deploy
       - run: yarn nx-cloud stop-all-agents
-  deploy:
-    needs: main
-    uses: therockstorm/nx-poc/.github/workflows/deploy-api.yml@main
-    with: { sha: "$GITHUB_SHA" }
+  # deploy:
+  #   needs: main
+  #   uses: therockstorm/nx-poc/.github/workflows/deploy-api.yml@main
+  #   with: { sha: "$GITHUB_SHA" }
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}

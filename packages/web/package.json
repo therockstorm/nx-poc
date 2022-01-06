@@ -34,14 +34,5 @@
   "dependencies": {
     "daisyui": "1.21.0",
     "lib": "*"
-  },
-  "scripts": {
-    "build": "svelte-kit build",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "dev": "svelte-kit dev",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest src",
-    "test:watch": "npm run test -- --watch"
   }
 }

@@ -1,4 +1,5 @@
 {
+  "implicitDependencies": ["api-spec"],
   "projectType": "library",
   "root": "packages/api-client-node",
   "sourceRoot": "packages/api-client-node",
