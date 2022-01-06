@@ -21,10 +21,12 @@ jobs:
       - run: yarn nx affected:build
       - run: yarn nx affected:lint
       - run: yarn nx affected:test
-      - run: yarn nx deploy api
       - run: yarn nx-cloud stop-all-agents
-  # deploy:
-  #   needs: main
+  deploy:
+    runs-on: ubuntu-latest
+    needs: main
+    steps:
+      - run: yarn nx deploy api
   #   uses: therockstorm/nx-poc/.github/workflows/deploy-api.yml@main
   #   with: { sha: "$GITHUB_SHA" }
   pr:
