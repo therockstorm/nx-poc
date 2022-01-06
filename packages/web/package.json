@@ -34,5 +34,8 @@
   "dependencies": {
     "daisyui": "1.21.0",
     "core": "*"
+  },
+  "scripts": {
+    "build": "svelte-kit build"
   }
 }
