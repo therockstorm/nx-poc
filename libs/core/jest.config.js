@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverageFrom: ["**/src/**", "!**/src/__*__/**"],
-  coverageDirectory: "../../coverage/packages/core",
+  coverageDirectory: "../../coverage/libs/core",
   coverageThreshold: {
     global: {
       branches: 5,

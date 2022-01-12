@@ -1,30 +1,30 @@
 {
   "implicitDependencies": ["api-spec"],
   "projectType": "library",
-  "root": "packages/api-client-node",
-  "sourceRoot": "packages/api-client-node",
+  "root": "libs/api-client-node",
+  "sourceRoot": "libs/api-client-node",
   "tags": ["scope:shared"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "options": {
-        "outputPath": "dist/packages/api-client-node",
-        "main": "packages/api-client-node/index.ts",
-        "tsConfig": "packages/api-client-node/tsconfig.json"
+        "outputPath": "dist/libs/api-client-node",
+        "main": "libs/api-client-node/index.ts",
+        "tsConfig": "libs/api-client-node/tsconfig.json"
       }
     },
     "gen-client": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "./generate.sh",
-        "cwd": "packages/api-client-node"
+        "cwd": "libs/api-client-node"
       },
-      "outputs": ["packages/api-client-node"]
+      "outputs": ["libs/api-client-node"]
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["packages/api-client-node/**/*.ts"]
+        "lintFilePatterns": ["libs/api-client-node/**/*.ts"]
       }
     }
   }

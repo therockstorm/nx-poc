@@ -1,21 +1,21 @@
 {
   "projectType": "library",
-  "root": "packages/api-spec",
+  "root": "libs/api-spec",
   "tags": ["scope:domain"],
   "targets": {
     "build": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "./generate.sh",
-        "cwd": "packages/api-spec"
+        "cwd": "libs/api-spec"
       },
-      "outputs": ["packages/api-spec/resolved"]
+      "outputs": ["libs/api-spec/resolved"]
     },
     "lint": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "spectral lint -F hint spec/api.yml",
-        "cwd": "packages/api-spec"
+        "cwd": "libs/api-spec"
       }
     }
   }

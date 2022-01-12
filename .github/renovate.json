@@ -12,6 +12,10 @@
       "stabilityDays": 3
     }
   ],
-  "schedule": ["before 3am on Tuesday"],
-  "timezone": "America/Chicago"
+  "schedule": [
+    "after 10pm every weekday",
+    "before 5am every weekday",
+    "every weekend"
+  ],
+  "timezone": "America/Denver"
 }

@@ -1,0 +1,30 @@
+{
+  "implicitDependencies": ["api-spec"],
+  "projectType": "application",
+  "root": "apps/api",
+  "sourceRoot": "apps/api/src",
+  "tags": ["scope:api"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/apps/api",
+        "main": "apps/api/src/index.ts",
+        "tsConfig": "apps/api/tsconfig.json"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "export AWS_REGION=us-west-2 && export GIT_SHORT_REV=$(git rev-parse --short HEAD) && cdk bootstrap --require-approval=never && cdk deploy --require-approval=never",
+        "cwd": "apps/api"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/api/**/*.ts"]
+      }
+    }
+  }
+}

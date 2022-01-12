@@ -1,15 +1,15 @@
 {
   "projectType": "library",
-  "root": "packages/scripts",
-  "sourceRoot": "packages/scripts",
+  "root": "libs/scripts",
+  "sourceRoot": "libs/scripts",
   "tags": ["scope:shared"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "options": {
-        "outputPath": "dist/packages/scripts",
-        "main": "packages/scripts/index.mjs",
-        "tsConfig": "packages/scripts/tsconfig.json"
+        "outputPath": "dist/libs/scripts",
+        "main": "libs/scripts/index.mjs",
+        "tsConfig": "libs/scripts/tsconfig.json"
       }
     },
 
@@ -17,13 +17,13 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "./index.mjs",
-        "cwd": "packages/scripts"
+        "cwd": "libs/scripts"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["packages/scripts/**/*.mjs"]
+        "lintFilePatterns": ["libs/scripts/**/*.mjs"]
       }
     }
   }

@@ -1,11 +1,11 @@
 {
   "version": 2,
   "projects": {
-    "api": "packages/api",
-    "api-client-node": "packages/api-client-node",
-    "api-spec": "packages/api-spec",
-    "core": "packages/core",
-    "scripts": "packages/scripts",
-    "web": "packages/web"
+    "api": "apps/api",
+    "api-client-node": "libs/api-client-node",
+    "api-spec": "libs/api-spec",
+    "core": "libs/core",
+    "scripts": "libs/scripts",
+    "web": "apps/web"
   }
 }
