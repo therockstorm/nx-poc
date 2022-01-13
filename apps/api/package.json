@@ -11,6 +11,7 @@
     "aws-cdk-lib": "2.3.0",
     "camel-case": "4.1.2",
     "constructs": "10.0.23",
+    "esbuild": "0",
     "jest": "27.4.5",
     "js-yaml": "4.1.0",
     "source-map-support": "0.5.21",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@aws-sdk/client-rds": "3.45.0",
     "@aws-sdk/client-rds-data": "3.45.0",
-    "core": "*"
+    "core": "*",
+    "lambda-api": "^0.11.2"
   }
 }
