@@ -310,7 +310,10 @@ function lambdaFunc({
   });
 
   if (func.timeout) {
-    const timeoutAlarmName = resourceName({ name, resource: "timeoutAlarm" });
+    const timeoutAlarmName = resourceName({
+      name: `${name}Timeout`,
+      resource: "alarm",
+    });
     new cloudwatch.Alarm(scope, timeoutAlarmName.id, {
       alarmName: timeoutAlarmName.name,
       evaluationPeriods: 1,
@@ -320,7 +323,10 @@ function lambdaFunc({
     });
   }
 
-  const errorAlarmName = resourceName({ name, resource: "errorAlarm" });
+  const errorAlarmName = resourceName({
+    name: `${name}Error`,
+    resource: "alarm",
+  });
   new cloudwatch.Alarm(scope, errorAlarmName.id, {
     alarmName: errorAlarmName.name,
     evaluationPeriods: 1,
