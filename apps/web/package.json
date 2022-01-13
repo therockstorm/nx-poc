@@ -16,7 +16,6 @@
     "@types/node": "17.0.7",
     "@types/testing-library__jest-dom": "5.14.2",
     "autoprefixer": "10.4.2",
-    "aws-sdk": "2.1055.0",
     "babel-jest": "27.4.6",
     "eslint-plugin-jest-dom": "4.0.1",
     "eslint-plugin-svelte3": "3.4.0",
@@ -35,8 +34,7 @@
   },
   "dependencies": {
     "core": "*",
-    "daisyui": "1.21.0",
-    "data-api-client": "1.2.0"
+    "daisyui": "1.21.0"
   },
   "scripts": {
     "build": "svelte-kit build"

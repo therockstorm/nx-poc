@@ -3435,7 +3435,7 @@ aws-cdk@2.3.0:
     yaml "1.10.2"
     yargs "^16.2.0"
 
-aws-sdk@2.1055.0, aws-sdk@^2.819.0:
+aws-sdk@^2.819.0:
   version "2.1055.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1055.0.tgz#07beb86650d5a313f7c899807c51b12b5e2f4117"
   integrity sha512-99drH3mvXakw9we8Rs2cDQmi2pS7PVAC9pvTlB7lHPUwLYftMlko5cFMceZxvTHeyLkdvg98iNIHI3hbnzitoQ==
@@ -4091,13 +4091,6 @@ daisyui@1.21.0:
   version "1.21.0"
   resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.21.0.tgz#627239e076d05eddb164ef55823c35af15c878d9"
   integrity sha512-sdqSI6v/Xc6OsBrZbBKqZKpOCuQyc1foq9s5ZqT8Qdp92kIbR/FBNfTethDjLpvYBPpsohHLCvC0ddWr2OotYA==
-
-data-api-client@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/data-api-client/-/data-api-client-1.2.0.tgz#3c07bc751f59c7e1ea97a18814b18dd762213fb8"
-  integrity sha512-AGv4lWOF4RyoqUOLrYWbZeIP7eyFCM2UxGJ92XG9Q0xHofrT/67plprl0mAsxpAYdWQ8u0hLZFxC+iQSASsjgQ==
-  dependencies:
-    sqlstring "^2.3.2"
 
 data-uri-to-buffer@3:
   version "3.0.1"
@@ -6718,11 +6711,6 @@ kleur@^4.1.4:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.4.tgz#8c202987d7e577766d039a8cd461934c01cda04d"
   integrity sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==
 
-lambda-api@0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/lambda-api/-/lambda-api-0.11.2.tgz#32a27a95983100cc1d7a5dd2aaef6c0f9bc3960b"
-  integrity sha512-4LPthd9sg3RdeNul+vz7XDmjqR/RW+Mr+4w857IgVcdcl5UqDzZbK+fxB7dH7HYQoERIusXuzUU/bolZed+agw==
-
 lazystream@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lazystream/-/lazystream-1.0.1.tgz#494c831062f1f9408251ec44db1cba29242a2638"
@@ -8176,11 +8164,6 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
-
-sqlstring@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/sqlstring/-/sqlstring-2.3.2.tgz#cdae7169389a1375b18e885f2e60b3e460809514"
-  integrity sha512-vF4ZbYdKS8OnoJAWBmMxCQDkiEBkGQYU7UZPtL8flbDRSNkhaXvRJ279ZtI6M+zDaQovVU4tuRgzK5fVhvFAhg==
 
 stack-utils@^2.0.3:
   version "2.0.5"

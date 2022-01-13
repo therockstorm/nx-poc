@@ -179,8 +179,8 @@ export class ApiStack extends Stack {
       args: {
         entry: join(__dirname, "..", "src", "handler.ts"),
         environment: {
-          DB_ARN: cluster.clusterArn,
-          DB_SECRET_ARN: secret.secretArn,
+          API_DB_CLUSTER_ARN: cluster.clusterArn,
+          API_DB_SECRET_ARN: secret.secretArn,
         },
       },
       name: "api",

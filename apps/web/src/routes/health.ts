@@ -1,20 +1,18 @@
-import aws from "aws-sdk";
+import {
+  BatchExecuteStatementCommand,
+  RDSDataClient,
+} from "@aws-sdk/client-rds-data";
 import { envVar } from "core/src";
-import DataApi from "data-api-client";
 
-aws.config.update({
+const API_DB_CLUSTER_ARN = envVar("API_DB_CLUSTER_ARN");
+const API_DB_SECRET_ARN = envVar("API_DB_SECRET_ARN");
+
+const client = new RDSDataClient({
   credentials: {
     accessKeyId: envVar("AWS_ID"),
     secretAccessKey: envVar("AWS_SECRET"),
   },
   region: "us-west-2",
-});
-
-const dataApi = DataApi({
-  database: "rocky",
-  region: "us-west-2",
-  resourceArn: envVar("AWS_CLUSTER_ARN"),
-  secretArn: envVar("AWS_SECRET_ARN"),
 });
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
@@ -32,6 +30,15 @@ export async function get() {
   //   age: 36,
   // });
 
-  console.log(await dataApi.query(`SELECT * FROM test`));
+  console.log(
+    await client.send(
+      new BatchExecuteStatementCommand({
+        resourceArn: API_DB_CLUSTER_ARN,
+        secretArn: API_DB_SECRET_ARN,
+        sql: `SELECT * FROM test;`,
+        database: "rocky",
+      })
+    )
+  );
   return { body: { message: "Hello, api!" } };
 }
