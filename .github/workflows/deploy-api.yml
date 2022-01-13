@@ -27,7 +27,7 @@ jobs:
           aws-region: us-west-2
           role-duration-seconds: 900
           role-session-name: GitHubActions
-          role-to-assume: arn:aws:iam::111685254296:role/DeployStack-GitHubuswest23E42E913-19WOJ9AAYE4I1
+          role-to-assume: arn:aws:iam::111685254296:role/OpsStack-GitHub38B7EEC4-TCNUE875P8WS
       - uses: actions/checkout@v2
         with: { fetch-depth: 0 }
       - uses: actions/setup-node@v2
