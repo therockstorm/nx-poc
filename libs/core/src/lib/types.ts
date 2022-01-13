@@ -3,10 +3,11 @@ import Pino from "pino";
 import type { DeepReadonly, Opaque } from "ts-essentials";
 
 const logger = Pino({
-  level:
-    process.env["LOG_LEVEL"] ?? process.env["NODE_ENV"] === "development"
-      ? "trace"
-      : "info",
+  level: process.env["LOG_LEVEL"]
+    ? process.env["LOG_LEVEL"]
+    : process.env["NODE_ENV"] === "development"
+    ? "trace"
+    : "info",
   redact: ["secret"],
 });
 logger.info({ key: "myKey", secret: "mySecret" });
