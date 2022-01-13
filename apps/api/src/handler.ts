@@ -23,49 +23,6 @@ const logger = Pino({
   redact: ["body"],
 });
 
-// import LambdaApi, { Request } from "lambda-api";
-// const api = LambdaApi();
-
-// api.get("/users", async (req: Request) => {
-//   try {
-// logger.info(
-//   `${req.pathParameters},
-//   ${NANO_ID_REG_EX.test(req.pathParameters?.id ?? "")}`
-// );
-//     const command = new ExecuteStatementCommand({
-//       resourceArn: API_DB_CLUSTER_ARN,
-//       secretArn: API_DB_SECRET_ARN,
-//       sql: `SELECT * FROM test;`,
-//       database: "rocky",
-//     });
-//     const data = await client.send(command);
-//     logger.info(data);
-//   } catch (error) {
-//     logger.error("Error calling DB.", error);
-//   }
-//   return response(200, "OK.");
-// });
-
-// api.post("/users", (req: Request) => {
-//   if (!req.body) return response(400, "Invalid request body.");
-
-//   try {
-//     const body: unknown = JSON.parse(req.body);
-//     logger.info(`Received ${prettyJson(body)}`);
-//     return response(200, "OK.");
-//   } catch (error) {
-//     logger.error(error);
-//     return response(400, "Invalid body.");
-//   }
-// });
-
-// export function handler(
-//   evt: APIGatewayProxyEvent,
-//   context: Context
-// ): Promise<any> {
-//   return api.run(evt, context);
-// }
-
 export async function handler(
   evt: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> {
