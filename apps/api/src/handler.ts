@@ -3,6 +3,7 @@ import {
   RDSDataClient,
 } from "@aws-sdk/client-rds-data";
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { captureAWSv3Client } from "aws-xray-sdk-core";
 import { envVar } from "core/src";
 import Pino from "pino";
 
@@ -12,13 +13,13 @@ const API_DB_CLUSTER_ARN = envVar("API_DB_CLUSTER_ARN");
 const API_DB_SECRET_ARN = envVar("API_DB_SECRET_ARN");
 const NANO_ID_REG_EX = /^[A-Za-z0-9_-]{21}$/;
 
-const client = new RDSDataClient({ region: REGION });
+const client = captureAWSv3Client(new RDSDataClient({ region: REGION }));
 const logger = Pino({
   level: process.env["LOG_LEVEL"]
     ? process.env["LOG_LEVEL"]
     : process.env["NODE_ENV"] === "development"
     ? "trace"
-    : "info",
+    : "debug",
   redact: ["body"],
 });
 
@@ -27,10 +28,10 @@ const logger = Pino({
 
 // api.get("/users", async (req: Request) => {
 //   try {
-//     logger.log(
-//       req.pathParameters,
-//       NANO_ID_REG_EX.test(req.pathParameters?.id ?? "")
-//     );
+// logger.info(
+//   `${req.pathParameters},
+//   ${NANO_ID_REG_EX.test(req.pathParameters?.id ?? "")}`
+// );
 //     const command = new ExecuteStatementCommand({
 //       resourceArn: API_DB_CLUSTER_ARN,
 //       secretArn: API_DB_SECRET_ARN,
@@ -38,7 +39,7 @@ const logger = Pino({
 //       database: "rocky",
 //     });
 //     const data = await client.send(command);
-//     logger.log(data);
+//     logger.info(data);
 //   } catch (error) {
 //     logger.error("Error calling DB.", error);
 //   }
@@ -50,7 +51,7 @@ const logger = Pino({
 
 //   try {
 //     const body: unknown = JSON.parse(req.body);
-//     logger.log(`Received ${prettyJson(body)}`);
+//     logger.info(`Received ${prettyJson(body)}`);
 //     return response(200, "OK.");
 //   } catch (error) {
 //     logger.error(error);
@@ -68,14 +69,14 @@ const logger = Pino({
 export async function handler(
   evt: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> {
-  logger.debug(prettyJson(evt));
+  logger.debug(evt);
 
   if (evt.httpMethod === "POST") {
     if (!evt.body) return response(400, "Invalid request body.");
 
     try {
       const body: unknown = JSON.parse(evt.body);
-      logger.log(`Received ${prettyJson(body)}`);
+      logger.info(`Received ${prettyJson(body)}`);
       return response(200, "OK.");
     } catch (error) {
       logger.error(error);
@@ -85,11 +86,10 @@ export async function handler(
 
   if (evt.httpMethod === "GET") {
     try {
-      logger.log(
-        evt.pathParameters,
-        NANO_ID_REG_EX.test(evt.pathParameters?.id ?? "")
-      );
-      logger.log(
+      logger.info({
+        validPathParam: NANO_ID_REG_EX.test(evt.pathParameters?.id ?? ""),
+      });
+      logger.info(
         (
           await client.send(
             new ExecuteStatementCommand({
@@ -116,7 +116,7 @@ function prettyJson(obj: unknown): string {
 
 function response(statusCode: number, message: string): APIGatewayProxyResult {
   const res = { body: JSON.stringify({ message }), statusCode };
-  logger.log(`Responding with ${prettyJson(res)}`);
+  logger.info(`Responding with ${prettyJson(res)}`);
   return res;
 }
 
