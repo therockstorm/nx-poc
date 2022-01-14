@@ -11,7 +11,7 @@
     "typescript": "4.5.4"
   },
   "dependencies": {
-    "immer": "9.0.7",
+    "immer": "9.0.12",
     "pino": "7.6.3"
   }
 }
