@@ -32,7 +32,7 @@ interface Name {
 
 interface ApiStackProps extends StackProps {
   readonly vpc: ec2.IVpc;
-  // readonly auroraServerlessSecurityGroup: ec2.SecurityGroup;
+  readonly auroraServerlessSecurityGroup: ec2.SecurityGroup;
 }
 
 const GH_USER = "therockstorm";
@@ -41,7 +41,7 @@ const GH_REPO = "nx-poc";
 
 export class OpsStack extends Stack {
   public readonly vpc: ec2.Vpc;
-  // public readonly auroraServerlessSecurityGroup: ec2.SecurityGroup;
+  public readonly auroraServerlessSecurityGroup: ec2.SecurityGroup;
 
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
@@ -51,11 +51,11 @@ export class OpsStack extends Stack {
       maxAzs: 2,
       natGateways: 0,
       subnetConfiguration: [
-        // {
-        //   cidrMask: 24,
-        //   name: "bastion",
-        //   subnetType: ec2.SubnetType.PUBLIC,
-        // },
+        {
+          cidrMask: 24,
+          name: "bastion",
+          subnetType: ec2.SubnetType.PUBLIC,
+        },
         {
           cidrMask: 24,
           name: "private-isolated-1",
@@ -64,28 +64,28 @@ export class OpsStack extends Stack {
         },
       ],
     });
-    // const bastionHost = new ec2.BastionHostLinux(
-    //   this,
-    //   resourceId({ name: "bastion", resource: "ec2" }),
-    //   {
-    //     vpc: this.vpc,
-    //     subnetSelection: { subnetType: ec2.SubnetType.PUBLIC },
-    //   }
-    // );
-    // this.auroraServerlessSecurityGroup = new ec2.SecurityGroup(
-    //   this,
-    //   resourceId({ name: "bastion", resource: "securityGroup" }),
-    //   {
-    //     vpc: this.vpc,
-    //     description: "Allow access to RDS.",
-    //     allowAllOutbound: true,
-    //   }
-    // );
-    // this.auroraServerlessSecurityGroup.addIngressRule(
-    //   bastionHost.instance.connections.securityGroups[0],
-    //   ec2.Port.tcp(5432),
-    //   "Allows PostgreSQL connections from bastion security group."
-    // );
+    const bastionHost = new ec2.BastionHostLinux(
+      this,
+      resourceId({ name: "bastion", resource: "ec2" }),
+      {
+        vpc: this.vpc,
+        subnetSelection: { subnetType: ec2.SubnetType.PUBLIC },
+      }
+    );
+    this.auroraServerlessSecurityGroup = new ec2.SecurityGroup(
+      this,
+      resourceId({ name: "bastion", resource: "securityGroup" }),
+      {
+        vpc: this.vpc,
+        description: "Allow access to RDS.",
+        allowAllOutbound: true,
+      }
+    );
+    this.auroraServerlessSecurityGroup.addIngressRule(
+      bastionHost.instance.connections.securityGroups[0],
+      ec2.Port.tcp(5432),
+      "Allows PostgreSQL connections from bastion security group."
+    );
     this.vpc.addInterfaceEndpoint(
       resourceId({ name: "secretsManager", resource: "interfaceEndpoint" }),
       { service: ec2.InterfaceVpcEndpointAwsService.SECRETS_MANAGER }
@@ -162,7 +162,7 @@ export class ApiStack extends Stack {
         "default.aurora-postgresql10"
       ),
       removalPolicy: RemovalPolicy.RETAIN,
-      // securityGroups: [props.auroraServerlessSecurityGroup],
+      securityGroups: [props.auroraServerlessSecurityGroup],
       scaling: {
         autoPause: Duration.minutes(5),
         minCapacity: rds.AuroraCapacityUnit.ACU_2,
@@ -379,7 +379,7 @@ function main(): void {
 
   const apiId = resourceName({ name: "api", region, resource: "stack" });
   new ApiStack(app, apiId.id, {
-    // auroraServerlessSecurityGroup: ops.auroraServerlessSecurityGroup,
+    auroraServerlessSecurityGroup: ops.auroraServerlessSecurityGroup,
     env: { account: process.env.CDK_DEFAULT_ACCOUNT, region },
     tags: {
       StackName: apiId.name,
