@@ -49,7 +49,7 @@ export class OpsStack extends Stack {
     this.vpc = new ec2.Vpc(this, "Vpc", {
       cidr: "10.0.0.0/16",
       maxAzs: 2,
-      natGateways: 0,
+      natGateways: 1,
       subnetConfiguration: [
         {
           cidrMask: 24,
@@ -58,8 +58,7 @@ export class OpsStack extends Stack {
         },
         {
           cidrMask: 24,
-          name: "private-isolated-1",
-          // name: "aurora-serverless",
+          name: "aurora-serverless",
           subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
         },
       ],
@@ -68,10 +67,11 @@ export class OpsStack extends Stack {
       this,
       resourceId({ name: "bastion", resource: "ec2" }),
       {
-        vpc: this.vpc,
         subnetSelection: { subnetType: ec2.SubnetType.PUBLIC },
+        vpc: this.vpc,
       }
     );
+    bastionHost.allowSshAccessFrom(ec2.Peer.ipv4("75.166.91.88/32"));
     this.auroraServerlessSecurityGroup = new ec2.SecurityGroup(
       this,
       resourceId({ name: "bastion", resource: "securityGroup" }),
@@ -367,7 +367,7 @@ function main(): void {
   const app = new App();
   const region = process.env.CDK_DEFAULT_REGION;
 
-  const opsName = resourceName({ name: "ops", region, resource: "stack" });
+  const opsName = resourceName({ name: "opsV2", region, resource: "stack" });
   const ops = new OpsStack(app, opsName.id, {
     env: { account: process.env.CDK_DEFAULT_ACCOUNT, region },
     tags: {
@@ -377,7 +377,7 @@ function main(): void {
     },
   });
 
-  const apiId = resourceName({ name: "api", region, resource: "stack" });
+  const apiId = resourceName({ name: "apiV2", region, resource: "stack" });
   new ApiStack(app, apiId.id, {
     auroraServerlessSecurityGroup: ops.auroraServerlessSecurityGroup,
     env: { account: process.env.CDK_DEFAULT_ACCOUNT, region },

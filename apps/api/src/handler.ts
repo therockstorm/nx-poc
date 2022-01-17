@@ -56,7 +56,7 @@ export async function handler(
               database: "rocky",
             })
           )
-        ).records
+        )?.records
       );
     } catch (error) {
       logger.error("Error calling DB.", error);
