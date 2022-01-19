@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "zx": "4.2.0"
+    "zx": "4.3.0"
   },
   "dependencies": {
     "@octokit/rest": "18.12.0"
