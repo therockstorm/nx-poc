@@ -1,9 +1,9 @@
-// #!/usr/bin/env node
+#!/usr/bin/env node
 
 // import { Octokit } from "@octokit/rest";
 
 // const octokit = new Octokit({
-//   auth: "YOUR_PERSONAL_ACCESS_TOKEN",
+//   auth: "YOUR_ACCESS_KEY",
 // });
 
 // console.log(
@@ -15,23 +15,27 @@
 // );
 
 // const OWNER = "therockstorm";
-// const REPO = "testing-api";
+// const REPO = "hi";
 // const BRANCH = "main";
 
 // // https://octokit.github.io/rest.js/v18#repos-create-for-authenticated-user
-// await octokit.repos.createForAuthenticatedUser({
-//   name: REPO,
-//   private: true,
+// await octokit.repos.createInOrg({
+//   allow_auto_merge: true,
+//   allow_merge_commit: false,
+//   allow_rebase_merge: false,
+//   allow_squash_merge: true,
+//   delete_branch_on_merge: true,
+//   description: undefined,
+//   has_downloads: false,
 //   has_issues: true,
 //   has_projects: false,
 //   has_wiki: false,
-//   allow_squash_merge: true,
-//   allow_merge_commit: false,
-//   allow_rebase_merge: false,
-//   allow_auto_merge: true,
-//   delete_branch_on_merge: true,
-//   has_downloads: false,
+//   homepage: undefined,
 //   is_template: false,
+//   name: REPO,
+//   org: OWNER,
+//   private: true,
+//   team_id: undefined,
 // });
 
 // await octokit.rest.repos.enableVulnerabilityAlerts({
@@ -59,3 +63,11 @@
 //   allow_force_pushes: false,
 //   allow_deletions: false,
 // });
+
+// console.log(
+//   (
+//     await octokit.rest.repos.listForOrg({
+//       org: "YOUR_ORG",
+//     })
+//   ).data.map((d) => d.name)
+// );
