@@ -4014,10 +4014,10 @@ console-browserify@1.1.x:
   dependencies:
     date-now "^0.1.4"
 
-constructs@10.0.35:
-  version "10.0.35"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.35.tgz#b9dd14e4f6a07492f50acda57cf9c016d2e70f39"
-  integrity sha512-cSEhC9I6L4S0CNDsheNZAgKufqssmugG1RlkGx7KcN2iykA3C8/EUyeMRVULqwyn0XfKypXd//KK11eaL3yXww==
+constructs@10.0.36:
+  version "10.0.36"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.36.tgz#e21eaf360a633a4b71919423ec626fedc4e26317"
+  integrity sha512-0stZi+PUWlfxmbnECWREbjlTgrvqDxg9/0j16b8t6bX1KWffXNBEwBSAS92WVKdFiSmVzEvMNLRcl+gyNMAwDQ==
 
 conventional-changelog-angular@^5.0.11:
   version "5.0.13"
@@ -4181,10 +4181,10 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-daisyui@1.23.0:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.23.0.tgz#73dfa4744b52e0ece4f8f9b229d0cc6fd5442620"
-  integrity sha512-qVH4NJCE6O8FtzdcLp5dJjewF72qxJIerbfysuxGdIx5FOJ9MNUC72zYdC9Pi4usDUzr3GAW71iZ7Ot3V0G1qg==
+daisyui@1.24.2:
+  version "1.24.2"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.24.2.tgz#2edc60a68dc78db25b78de60fda565a103badb3b"
+  integrity sha512-c3/YjwPSObJ/ibmQhcD97DOccIDn6+p9A3xqQ5y1bCGZQ1tJ4YVWHJ6HdZ7NCXDj+p7nbSv/pLyfri7zmgPTew==
 
 dargs@^7.0.0:
   version "7.0.0"
