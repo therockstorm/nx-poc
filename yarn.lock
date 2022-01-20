@@ -4181,10 +4181,10 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-daisyui@1.23.0:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.23.0.tgz#73dfa4744b52e0ece4f8f9b229d0cc6fd5442620"
-  integrity sha512-qVH4NJCE6O8FtzdcLp5dJjewF72qxJIerbfysuxGdIx5FOJ9MNUC72zYdC9Pi4usDUzr3GAW71iZ7Ot3V0G1qg==
+daisyui@1.23.1:
+  version "1.23.1"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.23.1.tgz#a9f9d8dadac5504a9186dfc2a581bed23df1d3d4"
+  integrity sha512-qamQl2JP+vZpVwEp3xdVrt84rkACspniw2UE1o8MzPOxJvwDUSJZUyhCY70RnFa55KnzL4J2LF/q8+pirZBtPg==
 
 dargs@^7.0.0:
   version "7.0.0"
