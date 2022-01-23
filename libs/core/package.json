@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "immer": "9.0.12",
-    "pino": "7.6.3"
+    "pino": "7.6.4"
   }
 }
