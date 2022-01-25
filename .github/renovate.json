@@ -12,5 +12,7 @@
       "prCreation": "not-pending",
       "stabilityDays": 3
     }
-  ]
+  ],
+  "schedule": ["before 3am on Tuesday", "before 3am on Wednesday"],
+  "timezone": "America/Denver"
 }

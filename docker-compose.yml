@@ -1,0 +1,16 @@
+services:
+  db:
+    environment:
+      POSTGRES_DB: hello_dev
+      POSTGRES_PASSWORD: postgres
+    image: postgres:14-alpine
+    ports: ["5432:5432"]
+    volumes: ["./data/db:/var/lib/postgresql/data"]
+  web:
+    build: ./apps/hello
+    depends_on: ["db"]
+    environment:
+      DATABASE_URL: ecto://postgres:postgres@db/hello_dev
+      MIX_ENV: prod
+      SECRET_KEY_BASE: $SECRET_KEY_BASE
+    ports: ["4000:4000"]
