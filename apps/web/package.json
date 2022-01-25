@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "devDependencies": {
-    "@babel/core": "7.16.10",
+    "@babel/core": "7.16.12",
     "@babel/preset-env": "7.16.11",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-vercel": "next",
