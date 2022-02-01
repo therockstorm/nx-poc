@@ -8,7 +8,7 @@ defmodule HelloWeb do
       use HelloWeb, :controller
       use HelloWeb, :view
 
-  The definitions below will be executed for every view,
+  Definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
   on imports, uses and aliases.
 

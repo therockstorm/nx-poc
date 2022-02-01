@@ -5,6 +5,7 @@
     "api-client-node": "libs/api-client-node",
     "api-spec": "libs/api-spec",
     "core": "libs/core",
+    "hello": "apps/hello",
     "scripts": "libs/scripts",
     "web": "apps/web"
   }

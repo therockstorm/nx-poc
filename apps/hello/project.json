@@ -1,0 +1,36 @@
+{
+  "projectType": "application",
+  "root": "apps/hello",
+  "sourceRoot": "apps/hello/lib",
+  "tags": ["scope:client"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "mix compile",
+        "cwd": "apps/hello"
+      }
+    },
+    "clean": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "mix clean",
+        "cwd": "apps/hello"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "mix format --check-formatted",
+        "cwd": "apps/hello"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "mix test --cover",
+        "cwd": "apps/hello"
+      }
+    }
+  }
+}
