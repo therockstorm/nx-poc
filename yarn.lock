@@ -4117,10 +4117,10 @@ console-browserify@1.1.x:
   dependencies:
     date-now "^0.1.4"
 
-constructs@10.0.41:
-  version "10.0.41"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.41.tgz#4deeb04baf2502110807f2d028cedd5a18bf326a"
-  integrity sha512-h8HytpdxtuO9PPndcvZGX90Silp9lCWxf0XlzGhWOGpZchIyDFR+pqy4n0eiyEsPcclPF0CMfCA3UcGugu3+vw==
+constructs@10.0.49:
+  version "10.0.49"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.49.tgz#8adc3c8b1517c2c0ed883013a737182ab173f359"
+  integrity sha512-6J0nS1JJPay00zcxdZ4r6levx35xk823R2dHNfjblJloaQb6WOpYdG9pAq8mb4z1dXdBBUkWKfYEfRL2Rn0x4Q==
 
 conventional-changelog-angular@^5.0.11:
   version "5.0.13"
