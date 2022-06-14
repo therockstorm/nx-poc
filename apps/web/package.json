@@ -22,7 +22,7 @@
     "eslint-plugin-testing-library": "5.0.5",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.4.7",
-    "postcss": "8.4.5",
+    "postcss": "8.4.14",
     "prettier-plugin-svelte": "2.6.0",
     "svelte": "3.46.3",
     "svelte-check": "2.3.0",
