@@ -11,7 +11,7 @@
     "aws-cdk-lib": "2.8.0",
     "camel-case": "4.1.2",
     "constructs": "10.0.66",
-    "esbuild": "0.14.23",
+    "esbuild": "0.14.48",
     "jest": "27.4.7",
     "js-yaml": "4.1.0",
     "source-map-support": "0.5.21",
