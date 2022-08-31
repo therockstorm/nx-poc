@@ -3612,10 +3612,10 @@ aws-sdk@^2.819.0, aws-sdk@^2.848.0, aws-sdk@^2.979.0:
     uuid "3.3.2"
     xml2js "0.4.19"
 
-aws-xray-sdk-core@3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.3.4.tgz#9530fe557b0cb5324b26273e33dcc71036017d64"
-  integrity sha512-GGnYAQgtclLHIBReOtsUgbDDCar0LR2TaHCWlQhPrEVVayrSAZQ4y+SlXN5YIadxMec4/f5dbF69wMbug9D5Ww==
+aws-xray-sdk-core@3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.3.7.tgz#198285081bc88f86e13988aec5591c6cc0babc91"
+  integrity sha512-ool4XhHZ+13qvxx8pQ9KTMFJbFizQbhbKNurEwdpEEI63/uuYPBn3ZjyNI+sVD0CjaGCjb7L8tFj6+WDHYdeFA==
   dependencies:
     "@aws-sdk/service-error-classification" "^3.4.1"
     "@aws-sdk/types" "^3.4.1"
