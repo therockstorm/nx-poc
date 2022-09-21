@@ -2894,10 +2894,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/data-api-client@1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@types/data-api-client/-/data-api-client-1.2.4.tgz#dccdb619a7b45919e169c6e3b7f412dd6acbb393"
-  integrity sha512-P9bKDGYRyo98fnivAmyK16a/UuqORRZOgMtfusdvS0NLfsY5xIEYWh3lSBedGxF8Jb3pX6hO0X9RGY+YFtSqPw==
+"@types/data-api-client@1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@types/data-api-client/-/data-api-client-1.2.5.tgz#041415c10d14fab1947669cd067a435fe16ac837"
+  integrity sha512-o0fMXccm0KEbPMhgC87Mxg74qdWNzqMYl1WzGZUiTB00YjvxwoLWew0Pt0xQQ560fQOecB3+U834y5NEzt6RyQ==
   dependencies:
     "@types/node" "*"
     aws-sdk "^2.819.0"
