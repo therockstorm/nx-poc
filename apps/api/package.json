@@ -21,7 +21,7 @@
     "upper-case-first": "2.0.2"
   },
   "dependencies": {
-    "@aws-sdk/client-rds-data": "3.48.0",
+    "@aws-sdk/client-rds-data": "3.186.0",
     "aws-xray-sdk-core": "3.3.4",
     "core": "*",
     "pino": "7.6.5"
