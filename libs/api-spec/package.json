@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@stoplight/spectral": "6.1.0"
+    "@stoplight/spectral": "6.5.0"
   }
 }
