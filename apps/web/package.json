@@ -5,7 +5,7 @@
   "type": "module",
   "devDependencies": {
     "@babel/core": "7.19.3",
-    "@babel/preset-env": "7.19.3",
+    "@babel/preset-env": "7.19.4",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
