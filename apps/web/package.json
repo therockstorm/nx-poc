@@ -35,7 +35,7 @@
   "dependencies": {
     "@aws-sdk/client-rds-data": "3.48.0",
     "core": "*",
-    "daisyui": "1.24.3"
+    "daisyui": "1.25.4"
   },
   "scripts": {
     "build": "svelte-kit build"
