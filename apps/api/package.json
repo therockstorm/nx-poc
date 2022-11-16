@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-rds-data": "3.48.0",
-    "aws-xray-sdk-core": "3.3.4",
+    "aws-xray-sdk-core": "3.4.0",
     "core": "*",
     "pino": "7.6.5"
   }
